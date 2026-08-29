@@ -33,8 +33,10 @@ export default defineConfig({
       rollupOptions: {
         output: {
           // Manual chunking: split lenis into its own chunk so it can be cached
-          manualChunks: {
-            lenis: ['lenis'],
+          manualChunks(id) {
+            if (id.includes('node_modules/lenis') || id.includes('node_modules\\lenis')) {
+              return 'lenis';
+            }
           },
         },
       },
