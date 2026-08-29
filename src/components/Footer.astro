@@ -6,9 +6,10 @@ import { SITE_CONFIG } from '../config';
 <footer class="site-footer" role="contentinfo">
   <div class="site-footer__inner container">
     <div class="footer-links">
-      <a href="mailto:hello@example.com" class="footer-link">Email</a>
-      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-      <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+      <a href="#" data-email="YW5kaWthYW5kcm9tZWRhc0BnbWFpbC5jb20=" class="footer-link email-link">Email</a>
+      <a href="#" data-href="aHR0cHM6Ly9naXRodWIuY29tL1RoYXRzZGlhbW9uZHM=" target="_blank" rel="noopener noreferrer" class="footer-link obfuscate-link github-link">GitHub</a>
+      <a href="#" data-href="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vYW5kaWthLWFuZHJvbWVkYS00NzcyNTczMjE=" target="_blank" rel="noopener noreferrer" class="footer-link obfuscate-link linkedin-link">LinkedIn</a>
+
       <a href="/resume#cv-section" class="footer-link">
         <span class="t-en">Download CV</span>
         <span class="t-id">Unduh CV</span>
@@ -18,6 +19,27 @@ import { SITE_CONFIG } from '../config';
       <span class="brand-name">{SITE_CONFIG.name}</span>
     </div>
   </div>
+<script>
+  const decodeFooterLinks = () => {
+    // Email link
+    const emailLink = document.querySelector('a.email-link[data-email]');
+    if (emailLink) {
+      const decoded = atob(emailLink.dataset.email);
+      emailLink.href = `mailto:${decoded}`;
+      emailLink.textContent = decoded;
+    }
+
+    // External obfuscated links (GitHub, LinkedIn, etc.)
+    document.querySelectorAll('a.obfuscate-link[data-href]').forEach((link) => {
+      const decoded = atob(link.dataset.href);
+      link.href = decoded;
+    });
+  };
+
+  // Run on first load and after every Astro View Transition navigation
+  decodeFooterLinks();
+  document.addEventListener('astro:page-load', decodeFooterLinks);
+</script>
 </footer>
 
 <style>
