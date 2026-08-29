@@ -1,0 +1,183 @@
+{
+  "image": "/images/remilque/welcome_banner.webp",
+  "context_image": "/images/remilque/dashboard.webp",
+  "solution_image": "/images/remilque/hasil_analisis_gambar.webp",
+  "gallery_images": [
+    {
+      "src": "/images/remilque/welcome_banner.webp",
+      "caption": {
+        "en": "Splash Screen & Login: Welcoming users with 'Magic Food Scanner' call-to-action.",
+        "id": "Splash Screen & Login: Menyambut pengguna dengan ajakan 'Magic Food Scanner'."
+      },
+      "alt": {
+        "en": "Login screen showing 'Masuk' and 'Daftar' buttons with green branding.",
+        "id": "Layar login dengan tombol Masuk dan Daftar berwarna hijau."
+      }
+    },
+    {
+      "src": "/images/remilque/hasil_analisis_gambar.webp",
+      "caption": {
+        "en": "AI Image Analysis: Detecting 15+ ingredients in 14 seconds and suggesting recipes.",
+        "id": "Analisis Gambar AI: Mendeteksi 15+ bahan dalam 14 detik dan menyarankan resep."
+      },
+      "alt": {
+        "en": "Screen showing 'Hasil Analisis Gambar' with detected ingredients like apple, tomato, and egg.",
+        "id": "Layar hasil analisis gambar dengan bahan terdeteksi seperti apel, tomat, dan telur."
+      }
+    },
+    {
+      "src": "/images/remilque/dashboard.webp",
+      "caption": {
+        "en": "Home Dashboard: Daily recipe recommendations categorized by Healthy, Economical, and Fast.",
+        "id": "Dasbor Beranda: Rekomendasi resep harian dikategorikan Sehat, Hemat, dan Cepat."
+      },
+      "alt": {
+        "en": "Dashboard showing Batagor recipe card and educational articles.",
+        "id": "Dasbor menampilkan kartu resep Batagor dan artikel edukasi."
+      }
+    },
+    {
+      "src": "/images/remilque/live_cooking_session.webp",
+      "caption": {
+        "en": "Interactive Cooking Guide: Step-by-step instructions with built-in timer functionality.",
+        "id": "Panduan Masak Interaktif: Instruksi langkah demi langkah dengan fitur timer bawaan."
+      },
+      "alt": {
+        "en": "Recipe step screen showing timer set to 15:00 with Start/Skip buttons.",
+        "id": "Layar langkah resep dengan timer diset 15:00 dan tombol Mulai/Lewati."
+      }
+    },
+    {
+      "src": "/images/remilque/live_cooking_session_with_voice.webp",
+      "caption": {
+        "en": "Voice Assistant Chat: Real-time conversation with 'Chef Remilque' for hands-free cooking.",
+        "id": "Obrolan Asisten Suara: Percakapan real-time dengan 'Chef Remilque' untuk memasak tanpa tangan."
+      },
+      "alt": {
+        "en": "Chat interface showing conversation history between user and Chef Remilque.",
+        "id": "Antarmuka obrolan menunjukkan riwayat percakapan antara pengguna dan Chef Remilque."
+      }
+    },
+    {
+      "src": "/images/remilque/ai_chat_food_chef.webp",
+      "caption": {
+        "en": "AI Chat Interface: Voice input and quick-reply options for health tips and recipes.",
+        "id": "Antarmuka Obrolan AI: Input suara dan opsi balasan cepat untuk tips kesehatan dan resep."
+      },
+      "alt": {
+        "en": "Chat screen with voice mic button and suggestion bubbles.",
+        "id": "Layar obrolan dengan tombol mikrofon suara dan gelembung saran."
+      }
+    }
+  ],
+  "metadata": {
+    "title": {
+      "en": "Remilque",
+      "id": "Remilque"
+    },
+    "subtitle": {
+      "en": "AI-Powered Food Waste Reduction & Healthy Living Assistant",
+      "id": "Asisten Pengurangan Limbah Makanan & Hidup Sehat berbasis AI"
+    },
+    "role": {
+      "en": "UI/UX Designer & Product Lead",
+      "id": "UI/UX Designer & Product Lead"
+    },
+    "team": {
+      "en": "Reovix Team (SMK Tunas Harapan Pati)",
+      "id": "Tim Reovix (SMK Tunas Harapan Pati)"
+    },
+    "competition": {
+      "en": "Technoday 2026 (Universitas Negeri Semarang)",
+      "id": "Technoday 2026 (Universitas Negeri Semarang)"
+    },
+    "period": "Aug 2025 – Nov 2025",
+    "category": "FoodTech · AI · Sustainability · Health",
+    "tools": [
+      "Figma",
+      "User Research",
+      "Prototyping",
+      "AI Workflow Design"
+    ],
+    "featured": true
+  },
+  "prototype_url": "https://www.figma.com/proto/HQoHhVviR0o74yRHjNi6Jt/Remilque-by-ReOvix?page-id=204%3A501&node-id=204-524&p=f&t=uEU5yHIfE1EL60Hp-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=204%3A546",
+  "design_url": "https://www.figma.com/design/HQoHhVviR0o74yRHjNi6Jt/Remilque-by-ReOvix?node-id=204-501&t=8MOSAUkVKdMaoLEl-1",
+  "embed_url": "https://embed.figma.com/design/HQoHhVviR0o74yRHjNi6Jt/Remilque-by-ReOvix?node-id=204-501&embed-host=share",
+  "content": {
+    "overview": {
+      "en": "Remilque is a mobile application designed to tackle the paradox of food waste and malnutrition in Indonesia. With 41% of national waste being food and 1 in 5 children suffering from stunting, Remilque bridges the gap by transforming leftover ingredients into healthy, economical, and quick recipes using AI technology.",
+      "id": "Remilque adalah aplikasi seluler yang dirancang untuk mengatasi paradoks limbah makanan dan malnutrisi di Indonesia. Dengan 41% sampah nasional berupa makanan dan 1 dari 5 anak mengalami stunting, Remilque menjembatani kesenjangan dengan mengubah sisa bahan menjadi resep sehat, hemat, dan cepat menggunakan teknologi AI."
+    },
+    "problem_statement": {
+      "en": "Indonesia faces two critical issues: massive food waste (41% of national waste) and widespread malnutrition/stunting. Households throw away edible food due to lack of creative cooking ideas, while simultaneously struggling to afford or access nutritious meals. There is no inclusive tool that connects pantry inventory with healthy meal planning.",
+      "id": "Indonesia menghadapi dua masalah kritis: limbah makanan masif (41% sampah nasional) dan malnutrisi/stunting yang meluas. Rumah tangga membuang makanan yang bisa dimakan karena kurangnya ide masak kreatif, sementara bersamaan itu berjuang untuk membeli atau mengakses makanan bergizi. Tidak ada alat inklusif yang menghubungkan inventaris dapur dengan perencanaan makan sehat."
+    },
+    "target_user": {
+      "name": "Ibu Rumah Tangga & Mahasiswa",
+      "age": "18-45",
+      "goals": [
+        "Reduce food waste and grocery bills",
+        "Cook healthy meals quickly with available ingredients",
+        "Learn new recipes without complex planning",
+        "Track personal contribution to sustainability"
+      ],
+      "pain_points": [
+        "Don't know what to cook with leftover ingredients",
+        "Fear of food expiring before use",
+        "Recipes often too complex or expensive",
+        "Lack of motivation to cook healthy food"
+      ]
+    },
+    "design_process": {
+      "steps": [
+        "Problem Framing (Food Waste vs. Stunting Data)",
+        "User Interviews & Needs Assessment",
+        "AI Feature Ideation (Food Scan, Voice Assistant)",
+        "Wireframing (Focus on Simplicity & Speed)",
+        "Visual Design (Green/Eco Theme, High Contrast)",
+        "Interactive Prototyping & Usability Testing"
+      ],
+      "principles_applied": [
+        {
+          "law": "Frictionless Interaction",
+          "application": "Quick Scan feature allows users to get recipes in <2 taps, minimizing effort during busy cooking times."
+        },
+        {
+          "law": "Gamification for Behavior Change",
+          "application": "Points, badges, and leaderboards encourage consistent use and sustainable habits."
+        },
+        {
+          "law": "Accessibility First",
+          "application": "Voice input and clear visual hierarchy ensure usability for all age groups and literacy levels."
+        }
+      ]
+    },
+    "key_features": [
+      {
+        "name": "Magic Food Scanner (AI Food Scan)",
+        "description": "Users take a photo of their fridge or pantry. AI detects ingredients (e.g., 15 items in 14 seconds), filters allergies, and instantly generates recipe suggestions tailored to available stock."
+      },
+      {
+        "name": "Smart Recipe Recommendations",
+        "description": "Curated daily recipes categorized by 'Healthy', 'Economical', and 'Fast'. Includes nutritional info and cost estimates to help users make informed choices."
+      },
+      {
+        "name": "Chef Remilque Voice Assistant",
+        "description": "Hands-free cooking companion. Users can ask questions, request step clarifications, or get health tips via voice chat while their hands are dirty from cooking."
+      },
+      {
+        "name": "Interactive Cooking Mode",
+        "description": "Step-by-step guide with built-in timers for each stage (prep, cook, rest). Prevents burning food and ensures perfect results every time."
+      },
+      {
+        "name": "Community & Gamification",
+        "description": "Share creations, compete on leaderboards, earn badges for reducing waste. Educational articles on nutrition and sustainability integrated into the feed."
+      }
+    ],
+    "outcome": {
+      "en": "Presented at Technoday 2026 as a finalist solution for SDG goals (Zero Hunger, Good Health). The prototype successfully demonstrated how AI can turn a chore (cooking with leftovers) into an engaging, rewarding experience. Validated that voice interaction and instant scanning significantly reduce friction for home cooks.",
+      "id": "Dipresentasikan di Technoday 2026 sebagai solusi finalis untuk tujuan SDG (Tanpa Kelaparan, Kesehatan Baik). Prototipe berhasil mendemonstrasikan bagaimana AI dapat mengubah tugas (masak sisa makanan) menjadi pengalaman yang menarik dan memuaskan. Tervalidasi bahwa interaksi suara dan pemindaian instan secara signifikan mengurangi gesekan bagi juru masak rumahan."
+    }
+  }
+}

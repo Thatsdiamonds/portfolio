@@ -1,0 +1,18 @@
+---
+import en from '../i18n/en.json';
+import id from '../i18n/id.json';
+
+interface Props {
+  keyName: string; // e.g., "nav.work"
+}
+
+const { keyName } = Astro.props;
+
+const resolveKey = (obj: any, path: string) => {
+  return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+};
+
+const enText = resolveKey(en, keyName) || keyName;
+const idText = resolveKey(id, keyName) || keyName;
+---
+<span class="t-en">{enText}</span><span class="t-id">{idText}</span>

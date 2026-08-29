@@ -1,0 +1,196 @@
+{
+  "title": {
+    "en": "Ecolang",
+    "id": "Ecolang"
+  },
+  "description": {
+    "en": "A gamified urban waste management mobile app that bridges the gap between community waste awareness and a structured circular economy - featuring AI waste scanning, GreenCoins rewards, clan competitions, and an integrated admin drop-point system.",
+    "id": "Aplikasi mobile pengelolaan sampah perkotaan berbasis gamifikasi yang menjembatani kesadaran memilah sampah dan ekosistem ekonomi sirkular - dilengkapi scan AI, reward GreenCoins, kompetisi clan, dan sistem admin drop-point terintegrasi."
+  },
+  "year": 2026,
+  "role": {
+    "en": "UI/UX Designer & Product Lead",
+    "id": "UI/UX Designer & Product Lead"
+  },
+  "category": "EcoTech · Mobile App · Gamification",
+  "technologies": [
+    "Figma",
+    "User Research",
+    "Prototyping",
+    "Design Systems",
+    "Mobile UI/UX",
+    "Gamification"
+  ],
+  "featured": true,
+  "order": 3,
+  "prototype_url": "https://www.figma.com/proto/bvzrIAkEw6fdtPXZYcZhja/UI---Design?node-id=20-6827&p=f&viewport=-2887%2C-3244%2C0.65&t=AhNfwWUkwUzlzxMj-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=864%3A3508",
+  "design_url": "https://www.figma.com/design/bvzrIAkEw6fdtPXZYcZhja/UI---Design?node-id=20-6827&t=AhNfwWUkwUzlzxMj-1",
+  "embed_url": "https://embed.figma.com/design/bvzrIAkEw6fdtPXZYcZhja/UI---Design?node-id=20-6827&embed-host=share",
+  "competition": {
+    "en": "TECHCOMFEST 2026 - UI/UX Design Concept",
+    "id": "TECHCOMFEST 2026 - Konsep Desain UI/UX"
+  },
+  "period": "2026",
+  "image": "/images/ecolang/PPT - 1.webp",
+  "context": {
+    "en": "Urban waste bins overflow daily. Public willingness to sort trash exists - but no system supports or rewards the habit. People stop mid-way because there is no feedback, appreciation, or sustained incentive to keep going.",
+    "id": "Tempat sampah umum sering meluap setiap hari. Kesadaran memilah sampah sebenarnya sudah ada - namun tidak ada sistem yang mendukung atau memberikan penghargaan atas kebiasaan tersebut. Akibatnya, niat baik masyarakat berhenti di tengah jalan."
+  },
+  "problem": {
+    "en": "The core problem is not with users - it's with the system: no integrated platform, no impact visualization, and no continuous motivation mechanism for sustainable waste behavior.",
+    "id": "Masalah utama bukan pada pengguna, tetapi pada sistem: tidak adanya platform terintegrasi, tidak adanya visualisasi dampak, dan tidak adanya motivasi berkelanjutan untuk perilaku pengelolaan sampah yang konsisten."
+  },
+  "solution": {
+    "en": "Ecolang is a User-Centered Design mobile app that helps users sort & channel waste, provides natural education, rewards participation with GreenCoins redeemable for vouchers and e-wallet balance, and builds a circular economy ecosystem through clan competitions and monthly Kilas Balik reports.",
+    "id": "Ecolang adalah aplikasi mobile berbasis User-Centered Design yang membantu pengguna memilah & menyalurkan sampah, memberikan edukasi secara natural, memberi reward berupa GreenCoins yang bisa ditukar voucher dan saldo e-wallet, serta membangun ekosistem ekonomi sirkular melalui kompetisi clan dan laporan Kilas Balik bulanan."
+  },
+  "outcome": {
+    "en": "Submitted as a UI/UX Design Concept entry for TECHCOMFEST 2026 by Team Namtujuh (SMK Tunas Harapan Pati). The design covers both the end-user mobile experience and the admin Drop-Point management system.",
+    "id": "Dikumpulkan sebagai karya UI/UX Design Concept untuk TECHCOMFEST 2026 oleh Tim Namtujuh (SMK Tunas Harapan Pati). Desain mencakup pengalaman mobile pengguna akhir dan sistem manajemen admin Drop-Point."
+  },
+  "gallery_images": [
+    {
+      "src": "/images/ecolang/PPT - 1.webp",
+      "caption": {
+        "en": "Ecolang - Urban Waste Management System. UI/UX Design Concept for TECHCOMFEST 2026.",
+        "id": "Ecolang - Sistem Pengelolaan Sampah Perkotaan. Konsep UI/UX untuk TECHCOMFEST 2026."
+      },
+      "alt": {
+        "en": "Ecolang cover slide showing the app on a phone held by a cartoon character",
+        "id": "Slide sampul Ecolang menampilkan aplikasi di ponsel yang dipegang karakter kartun"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 2.webp",
+      "caption": {
+        "en": "Team Namtujuh - Galang Surya Admaja & Andika Andromeda (SMK Tunas Harapan Pati)",
+        "id": "Tim Namtujuh - Galang Surya Admaja & Andika Andromeda (SMK Tunas Harapan Pati)"
+      },
+      "alt": {
+        "en": "Team introduction slide for Namtujuh team members",
+        "id": "Slide perkenalan tim Namtujuh"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 3.webp",
+      "caption": {
+        "en": "Problem Background - Overflowing bins, existing awareness, but no supporting system or incentive structure.",
+        "id": "Latar Belakang Masalah - Tempat sampah meluap, kesadaran ada, namun tidak ada sistem pendukung atau insentif."
+      },
+      "alt": {
+        "en": "Problem background slide listing root causes of urban waste failure",
+        "id": "Slide latar belakang masalah yang mencantumkan akar penyebab kegagalan pengelolaan sampah"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 4.webp",
+      "caption": {
+        "en": "Core Insight - The problem is systemic: no integrated platform, no impact visualization, no sustained motivation.",
+        "id": "Insight Utama - Masalah bersifat sistemik: tidak ada platform terintegrasi, visualisasi dampak, atau motivasi berkelanjutan."
+      },
+      "alt": {
+        "en": "Insight slide showing Ecolang bridges the systemic gap",
+        "id": "Slide insight menunjukkan Ecolang menjembatani kesenjangan sistemik"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 5.webp",
+      "caption": {
+        "en": "Solution Overview - Ecolang: sort & channel waste, natural education, GreenCoins rewards, circular economy.",
+        "id": "Gambaran Solusi - Ecolang: memilah & menyalurkan sampah, edukasi natural, reward GreenCoins, ekonomi sirkular."
+      },
+      "alt": {
+        "en": "Solution slide outlining Ecolang's four core value propositions",
+        "id": "Slide solusi yang menguraikan empat proposisi nilai inti Ecolang"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 6.webp",
+      "caption": {
+        "en": "Key Feature: Smart Basket (Keranjang Sampah) - Store scanned or manually added waste items before drop-off.",
+        "id": "Fitur Utama: Keranjang Sampah - Menyimpan item hasil scan/manual sebelum disetor ke drop point."
+      },
+      "alt": {
+        "en": "User app home screen showing the Smart Basket feature",
+        "id": "Layar beranda aplikasi pengguna menampilkan fitur Keranjang Sampah"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 7.webp",
+      "caption": {
+        "en": "Key Feature: AI Waste Scan - Photograph waste, AI identifies type, add to basket with weight & quantity.",
+        "id": "Fitur Utama: Scan Sampah AI - Foto sampah, AI mengidentifikasi jenisnya, tambahkan ke keranjang dengan berat & jumlah."
+      },
+      "alt": {
+        "en": "Scan Sampah feature screens showing AI item identification flow",
+        "id": "Layar fitur Scan Sampah menampilkan alur identifikasi item oleh AI"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 9.webp",
+      "caption": {
+        "en": "Key Feature: Drop Point & Pick-up Map - Google Maps-style map visualization for nearest waste drop-off & pickup points.",
+        "id": "Fitur Utama: Peta Drop Point & Pickup - Visualisasi peta bergaya Google Maps untuk titik setor dan pickup terdekat."
+      },
+      "alt": {
+        "en": "Drop Point map screen showing route navigation to waste facilities",
+        "id": "Layar peta Drop Point menampilkan navigasi rute ke fasilitas sampah"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 10.webp",
+      "caption": {
+        "en": "Key Feature: GreenCoins Wallet & Rewards - Earn points for every waste submission; redeem for vouchers, discounts, and e-wallet balance.",
+        "id": "Fitur Utama: Dompet GreenCoins & Reward - Kumpulkan poin dari setiap setoran; tukarkan dengan voucher, diskon, dan saldo e-wallet."
+      },
+      "alt": {
+        "en": "GreenCoins wallet screen showing balance, transactions, and reward redemption",
+        "id": "Layar dompet GreenCoins menampilkan saldo, transaksi, dan penukaran reward"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 11.webp",
+      "caption": {
+        "en": "Key Feature: Kilas Balik - Automated monthly report with shareable stats and user progress insights.",
+        "id": "Fitur Utama: Kilas Balik - Laporan bulanan otomatis dengan statistik yang bisa dishare dan insight progres pengguna."
+      },
+      "alt": {
+        "en": "Kilas Balik monthly report screens showing user recycling stats and achievements",
+        "id": "Layar laporan Kilas Balik menampilkan statistik daur ulang dan pencapaian pengguna"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 12.webp",
+      "caption": {
+        "en": "Key Feature: Clan War - Community waste competition between sub-districts with streak tracking, leaderboard, and clan chat.",
+        "id": "Fitur Utama: Clan War - Kompetisi sampah komunitas antar kecamatan dengan streak, leaderboard, dan chat clan."
+      },
+      "alt": {
+        "en": "Clan War screens showing battle, leaderboard, and clan chat features",
+        "id": "Layar Clan War menampilkan pertandingan, leaderboard, dan fitur chat clan"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 13.webp",
+      "caption": {
+        "en": "Admin Flow: Drop-Point Management - Admin dashboard for managing pickup orders, map-based routing, and daily history.",
+        "id": "Flow Admin: Manajemen Drop-Point - Dashboard admin untuk kelola order pickup, routing berbasis peta, dan riwayat harian."
+      },
+      "alt": {
+        "en": "Admin Drop-Point app screens showing pickup management and map routing",
+        "id": "Layar aplikasi admin Drop-Point menampilkan manajemen pickup dan routing peta"
+      }
+    },
+    {
+      "src": "/images/ecolang/PPT - 14.webp",
+      "caption": {
+        "en": "Demo - Two prototype flows available: Prototype User (end-user app) and Prototype Admin (Drop-Point management).",
+        "id": "Demo - Tersedia dua alur prototipe: Prototipe Pengguna (aplikasi pengguna) dan Prototipe Admin (manajemen Drop-Point)."
+      },
+      "alt": {
+        "en": "Final slide showing Prototype User and Prototype Admin links for Ecolang demo",
+        "id": "Slide akhir menampilkan tautan Prototipe Pengguna dan Prototipe Admin untuk demo Ecolang"
+      }
+    }
+  ]
+}

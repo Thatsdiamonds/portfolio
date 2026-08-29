@@ -1,0 +1,6 @@
+# Cloudflare Pages configuration
+# Deploy the `dist/` folder after running `npm run build`
+
+[build]
+command = "npm run build"
+destination = "dist"

@@ -1,0 +1,148 @@
+{
+  "image": "/images/jobin/JOBIN - 1.webp",
+  "context_image": "/images/jobin/JOBIN - 2.webp",
+  "solution_image": "/images/jobin/JOBIN - 3.webp",
+  "gallery_images": [
+    {
+      "src": "/images/jobin/JOBIN - 1.webp",
+      "caption": {
+        "en": "Jobin Ecosystem: End-to-End User Journey from Onboarding to Payment",
+        "id": "Ekosistem Jobin: Perjalanan Pengguna Lengkap dari Onboarding hingga Pembayaran"
+      },
+      "alt": {
+        "en": "Collage of mobile screens showing login, profile generation, task matching, and transaction flow",
+        "id": "Kolase layar seluler yang menunjukkan login, pembuatan profil, pencocokan tugas, dan alur transaksi"
+      }
+    },
+    {
+      "src": "/images/jobin/JOBIN - 2.webp",
+      "caption": {
+        "en": "Community Forum with Intelligent Guardian System & Protocol Dashboard",
+        "id": "Forum Komunitas dengan Sistem Penjaga Cerdas & Dashboard Protokol"
+      },
+      "alt": {
+        "en": "Left: Community discussion feed with safety reporting tools. Right: Admin dashboard for monitoring real-time worker safety protocols",
+        "id": "Kiri: Feed diskusi komunitas dengan alat pelaporan keamanan. Kanan: Dashboard admin untuk memonitor protokol keselamatan pekerja secara real-time"
+      }
+    },
+    {
+      "src": "/images/jobin/JOBIN - 4.webp",
+      "caption": {
+        "en": "Freelancer Dashboard: AI-Generated Portfolio, Earnings Stats & Payment Gateway",
+        "id": "Dasbor Freelancer: Portofolio AI, Statistik Penghasilan & Gerbang Pembayaran"
+      },
+      "alt": {
+        "en": "Three screens: QR payment receipt, dashboard with earnings/stats, and detailed professional profile with certificates",
+        "id": "Tiga layar: bukti pembayaran QR, dasbor dengan penghasilan/statistik, dan profil profesional terperinci dengan sertifikat"
+      }
+    }
+  ],
+  "metadata": {
+    "title": {
+      "en": "Jobin",
+      "id": "Jobin"
+    },
+    "subtitle": {
+      "en": "AI-Powered Gig Economy Platform for Informal Workers",
+      "id": "Platform Ekonomi Gig berbasis AI untuk Pekerja Sektor Informal"
+    },
+    "role": {
+      "en": "UI/UX Designer & Product Lead",
+      "id": "UI/UX Designer & Product Lead"
+    },
+    "competition": {
+      "en": "THE ACE 2025 — Participant (Universitas Diponegoro)",
+      "id": "THE ACE 2025 — Peserta (Universitas Diponegoro)"
+    },
+    "period": "Feb 2025 – Jun 2025",
+    "category": "Gig Economy · AI · Social Impact",
+    "tools": [
+      "Figma",
+      "User Research",
+      "AI Conceptualization",
+      "Mobile UX"
+    ],
+    "featured": true
+  },
+  "prototype_url": "#",
+  "design_url": "#",
+  "embed_url": "https://embed.figma.com/design/bvzrIAkEw6fdtPXZYcZhja/UI---Design?node-id=20-6827&embed-host=share",
+  "content": {
+    "overview": {
+      "en": "Indonesia's informal sector suffers from a 'blind spot'—a lack of inclusive media connecting micro-service demand with supply. Jobin is a digital ecosystem that leverages Artificial Intelligence to illuminate hidden economic opportunities. By transforming static location data into spatial visualizations and automating CV creation, Jobin humanizes technology for millions of untapped workers.",
+      "id": "Sektor informal Indonesia menderita 'titik buta'—kurangnya media inklusif yang menghubungkan permintaan jasa mikro dengan penawaran. Jobin adalah ekosistem digital yang memanfaatkan Kecerdasan Buatan (AI) untuk menerangi peluang ekonomi tersembunyi. Dengan mengubah data lokasi statis menjadi visualisasi spasial dan mengotomatisasi pembuatan CV, Jobin memanusiakan teknologi bagi jutaan pekerja yang belum tersentuh."
+    },
+    "problem_statement": {
+      "en": "1) Information Darkness: Micro-service demands in local environments fail to meet providers due to lack of connection. 2) Administrative Barriers: Informal workers lack structured resumes/portfolio to prove competence. 3) Safety Risks: Gig workers face high vulnerability without proactive protection mechanisms beyond conventional SOS.",
+      "id": "1) Keb Gelapan Informasi: Permintaan jasa mikro di lingkungan lokal gagal bertemu penyedia akibat kurangnya penghubung. 2) Hambatan Administratif: Pekerja informal tidak memiliki resume/portofolio terstruktur untuk membuktikan kompetensi. 3) Risiko Keamanan: Pekerja gig menghadapi kerentanan tinggi tanpa mekanisme perlindungan proaktif selain SOS konvensional."
+    },
+    "target_user": {
+      "name": "Rizky the Technician",
+      "age": 24,
+      "occupation": "Daily Laborer / Freelance Handyman",
+      "location": "Urban Semarang",
+      "goals": [
+        "Find immediate local job opportunities without intermediaries",
+        "Build a professional profile without writing a CV",
+        "Ensure personal safety while working in unfamiliar areas",
+        "Receive fair payment quickly and transparently"
+      ],
+      "pain_points": [
+        "Cannot access job listings due to low digital literacy",
+        "Rejected by clients because no formal resume exists",
+        "Fear of scams or unsafe work environments",
+        "Delayed or withheld payments from clients"
+      ]
+    },
+    "design_process": {
+      "steps": [
+        "Context-Aware UX Research (Informal Sector Mapping)",
+        "AI Feature Ideation (Satellite View, Generative Profiling)",
+        "Low-Fi Wireframing for Accessibility",
+        "High-Fidelity Visual Design (High Contrast, Large Targets)",
+        "Usability Testing with Target Demographic",
+        "Iterative Refinement based on Feedback"
+      ],
+      "principles_applied": [
+        {
+          "law": "Context-Aware Design",
+          "application": "AI-Enhanced Satellite View transforms complex data maps into intuitive 'hot zones' of job availability, readable even by those with low literacy."
+        },
+        {
+          "law": "Generative Empowerment",
+          "application": "Generative Profiling automatically constructs a professional portfolio from user's past physical tasks, validating competence without paperwork."
+        },
+        {
+          "law": "Safety by Design",
+          "application": "Intelligent Guardian System monitors real-time patterns and enables emergency locking, providing proactive protection over reactive SOS."
+        }
+      ]
+    },
+    "key_features": [
+      {
+        "name": "AI-Enhanced Satellite View",
+        "description": "Transforms static location data into an interactive spatial map. Users see 'hot zones' of job demand visually, eliminating text-heavy search barriers."
+      },
+      {
+        "name": "Generative Profiling",
+        "description": "AI converts a user's history of physical tasks into a structured, professional portfolio. Validates skills automatically, removing the need for formal resumes."
+      },
+      {
+        "name": "Intelligent Guardian System",
+        "description": "Proactive safety net that analyzes behavioral patterns in real-time. Triggers emergency locks and alerts if anomalies are detected, going beyond standard SOS."
+      },
+      {
+        "name": "Focus Mode & Transparency",
+        "description": "Distraction-free interface for task execution. Integrated payment gateway with transparent fee structures builds trust between workers and clients."
+      },
+      {
+        "name": "Community Forum",
+        "description": "Safe space for workers to share tips, report scams anonymously, and build collective knowledge. Includes moderation tools for community safety."
+      }
+    ],
+    "outcome": {
+      "en": "Successfully presented at THE ACE 2025 as a visionary solution for inclusive gig economy. The design validates that AI can bridge the digital divide when applied to accessibility and safety. Users gain dignity through automated professional validation, while clients find reliable labor through intuitive spatial discovery.",
+      "id": "Berhasil dipresentasikan di THE ACE 2025 sebagai solusi visioner untuk ekonomi gig yang inklusif. Desain ini memvalidasi bahwa AI dapat menjembatani kesenjangan digital ketika diterapkan pada aksesibilitas dan keselamatan. Pengguna memperoleh martabat melalui validasi profesional otomatis, sementara klien menemukan tenaga kerja yang andal melalui penemuan spasial yang intuitif."
+    }
+  }
+}

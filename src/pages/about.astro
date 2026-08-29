@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import T from '../components/T.astro';
+import en from '../i18n/en.json';
+import id from '../i18n/id.json';
+import { SITE_CONFIG } from '../config';
+
+
+const exp = en.experience_entries;
+---
+
+<BaseLayout
+  title={`about me - ${SITE_CONFIG.name}`}
+  description={`Background and experience of ${SITE_CONFIG.name} - Developer & Designer based in Indonesia.`}
+>
+  <div class="about-page">
+    <header class="about-header container">
+      <h1 class="about-title display">
+        about me
+      </h1>
+    </header>
+
+    <div class="about-grid container">
+      <!-- Left Column: Bio Narrative -->
+      <main class="about-content">
+        <p class="about-lead meta">
+          <span class="t-en">
+            I'm a developer and designer currently based in Indonesia, working with software architecture, web applications, and intuitive user experiences.
+          </span>
+          <span class="t-id">
+            Saya adalah seorang developer dan desainer asal Indonesia, berfokus pada arsitektur perangkat lunak, aplikasi web, dan pengalaman pengguna yang intuitif.
+          </span>
+        </p>
+
+        <p class="meta about-p">
+          <T keyName="about_bio.short" />
+        </p>
+
+        <p class="meta about-p about-p--bold">
+          <T keyName="about_bio.focus" />
+        </p>
+
+        <div class="about-actions">
+          <a href="/cv.pdf" download class="pill-btn">
+            <T keyName="resume.download" />
+          </a>
+        </div>
+      </main>
+
+      <!-- Right Column: Portrait Frame with rounded corners -->
+      <aside class="about-sidebar">
+        <div class="portrait-frame">
+          <img src={SITE_CONFIG.profileImage} alt={SITE_CONFIG.name} class="portrait-img" />
+        </div>
+      </aside>
+    </div>
+
+    <!-- Experience Overview Table -->
+    <section class="section-container container" id="experience" style="margin-top: var(--space-20);">
+      <div class="section-headline" style="text-align: left;">
+        <h2 class="section-headline__title" style="font-size: var(--text-2xl); font-weight: 700;">experience overview</h2>
+      </div>
+
+      <div class="exp-table">
+        {exp.map((itemEn, i) => {
+          const itemId = id.experience_entries[i];
+          return (
+            <div class="exp-table-row">
+              <div class="exp-table-col exp-table-col--role">
+                <h3 class="exp-role-title">
+                  <span class="t-en">{itemEn.title}</span>
+                  <span class="t-id">{itemId.title}</span>
+                </h3>
+                <p class="meta exp-company">
+                  <span class="t-en">{itemEn.company}</span>
+                  <span class="t-id">{itemId.company}</span>
+                </p>
+              </div>
+
+              <div class="exp-table-col exp-table-col--desc meta">
+                <span class="t-en">{itemEn.description}</span>
+                <span class="t-id">{itemId.description}</span>
+              </div>
+
+              <div class="exp-table-col exp-table-col--period meta">
+                <span class="t-en">{itemEn.period}</span>
+                <span class="t-id">{itemId.period}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding-top: calc(4rem + var(--space-16));
+    padding-bottom: var(--space-32);
+  }
+
+  .about-header {
+    margin-bottom: var(--space-12);
+  }
+
+  .about-title {
+    font-size: var(--text-hero);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  @media (min-width: 860px) {
+    .about-grid {
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-16);
+    }
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .about-lead {
+    font-size: var(--text-md);
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+
+  .about-p {
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+  }
+
+  .about-p--bold {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .about-actions {
+    margin-top: var(--space-4);
+  }
+
+  .portrait-frame {
+    aspect-ratio: 4 / 4.8;
+    background-color: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portrait-placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Table styling */
+  .exp-table {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .exp-table-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-block: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 768px) {
+    .exp-table-row {
+      grid-template-columns: 1.2fr 2fr 120px;
+      align-items: baseline;
+      gap: var(--space-8);
+    }
+  }
+
+  .exp-role-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .exp-company {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .exp-table-col--desc {
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+  }
+
+  .exp-table-col--period {
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    text-align: right;
+  }
+
+  @media (max-width: 767px) {
+    .exp-table-col--period {
+      text-align: left;
+    }
+  }
+</style>

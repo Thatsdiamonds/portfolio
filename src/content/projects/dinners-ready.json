@@ -1,0 +1,150 @@
+{
+  "url": "https://live2dev2026.itch.io/dinner-is-here",
+  "image": "/images/dih/main_menu.webp",
+  "context_image": "/images/dih/game_play_bedroom.webp",
+  "solution_image": "/images/dih/minigame_2_in_unity_editor.webp",
+  "gallery_images": [
+    {
+      "src": "/images/dih/main_menu.webp",
+      "caption": {
+        "en": "Atmospheric Title Screen with Pixel Art Character & Menu",
+        "id": "Layar Judul Atmosferik dengan Karakter Pixel Art & Menu"
+      },
+      "alt": {
+        "en": "Main menu screen showing 'Dinner is HERE!' title and a character eating with green eyes",
+        "id": "Layar menu utama menampilkan judul 'Dinner is HERE!' dan karakter makan dengan mata hijau"
+      }
+    },
+    {
+      "src": "/images/dih/game_play_bedroom.webp",
+      "caption": {
+        "en": "Daily Routine Gameplay: Exploring the Isolated House",
+        "id": "Gameplay Rutinitas Harian: Mengeksplorasi Rumah yang Terisolasi"
+      },
+      "alt": {
+        "en": "In-game screenshot of bedroom with character standing near wardrobe, dialogue box showing 'TUGAS: Kerjakan pekerjaan'",
+        "id": "Screenshot dalam game kamar tidur dengan karakter berdiri di dekat lemari, kotak dialog menampilkan 'TUGAS: Kerjakan pekerjaan'"
+      }
+    },
+    {
+      "src": "/images/dih/minigame_1.webp",
+      "caption": {
+        "en": "PC Minigame: Simulated Desktop Environment & Pop-up Mechanics",
+        "id": "Minigame PC: Lingkungan Desktop Tersimulasi & Mekanisme Pop-up"
+      },
+      "alt": {
+        "en": "Game screen showing Windows-like desktop with pop-up windows and task counter 'Close popups! 4/15'",
+        "id": "Layar game menampilkan desktop mirip Windows dengan jendela pop-up dan penghitung tugas 'Close popups! 4/15'"
+      }
+    },
+    {
+      "src": "/images/dih/minigame_2_in_unity_editor.webp",
+      "caption": {
+        "en": "Behind the Scenes: Unity Editor with Asset Management & Audio Implementation",
+        "id": "Di Balik Layar: Unity Editor dengan Manajemen Aset & Implementasi Audio"
+      },
+      "alt": {
+        "en": "Unity editor interface showing scene view, project folder with pixel art assets, and audio mixer settings",
+        "id": "Antarmuka editor Unity menampilkan tampilan adegan, folder proyek dengan aset pixel art, dan pengaturan audio mixer"
+      }
+    }
+  ],
+  "metadata": {
+    "title": {
+      "en": "Dinner Is Here",
+      "id": "Dinner Is Here"
+    },
+    "subtitle": {
+      "en": "Atmospheric Narrative Game about Isolation & Psychological Tension",
+      "id": "Game Narasi Atmosferik tentang Isolasi & Ketegangan Psikologis"
+    },
+    "role": {
+      "en": "Game Developer · Audio Designer · Level Architect",
+      "id": "Game Developer · Audio Designer · Level Architect"
+    },
+    "event": {
+      "en": "Live2Dev GameJam 2026 — Theme: 'No such thing as a free lunch'",
+      "id": "Live2Dev GameJam 2026 — Tema: 'Tidak ada makan siang gratis'"
+    },
+    "status": "In Development (WIP)",
+    "period": "July 2026 – Present",
+    "category": "Indie Game · Pixel Art · Psychological Horror",
+    "tools": [
+      "Unity",
+      "C#",
+      "Figma",
+      "Audio Production Tools",
+      "Pixel Art Software"
+    ],
+    "featured": true,
+    "external_links": {
+      "itch_io_submission": "https://live2dev2026.itch.io/dinner-is-here",
+      "demo_download": null
+    }
+  },
+  "content": {
+    "overview": {
+      "en": "Dinner Is Here is a short atmospheric narrative game about a hikikomori living alone in a house that slowly becomes unfamiliar. What starts as an ordinary routine—wake up, work, eat, sleep—gradually turns into something unexplainable. As portions shrink and silence grows, players must uncover what happened to the person who used to leave dinner at the door.",
+      "id": "Dinner Is Here adalah game narasi atmosferik pendek tentang seorang hikikomori yang tinggal sendirian di rumah yang perlahan menjadi tidak akrab. Yang awalnya rutinitas biasa—bangun, kerja, makan, tidur—secara bertahap berubah menjadi sesuatu yang tak terjelaskan. Saat porsi mengecil dan keheningan tumbuh, pemain harus mengungkap apa yang terjadi pada orang yang biasa meninggalkan makan malam di pintu."
+    },
+    "problem_statement": {
+      "en": "Creating a compelling psychological horror experience within a 48-hour game jam constraint requires balancing narrative depth with gameplay mechanics. The challenge was to convey escalating dread and isolation without relying on jump scares or graphic violence, using only environmental storytelling, sound design, and subtle visual changes.",
+      "id": "Menciptakan pengalaman horor psikologis yang menarik dalam batasan game jam 48 jam mengharuskan keseimbangan antara kedalaman narasi dan mekanik gameplay. Tantangannya adalah menyampaikan ketakutan dan isolasi yang meningkat tanpa mengandalkan jump scare atau kekerasan grafis, hanya menggunakan penceritaan lingkungan, desain suara, dan perubahan visual halus."
+    },
+    "design_process": {
+      "steps": [
+        "Concept Ideation & Theme Interpretation ('No such thing as a free lunch')",
+        "Narrative Scriptwriting & Pacing Planning",
+        "Pixel Art Asset Creation & Animation",
+        "Unity Scene Construction & Lighting Setup",
+        "Audio System Implementation (SFX, Soundtracks, Ambience)",
+        "Minigame Logic Programming (Desktop Simulation)",
+        "Iterative Playtesting for Atmospheric Impact"
+      ],
+      "key_design_decisions": [
+        {
+          "decision": "Routine-Based Gameplay Loop",
+          "rationale": "Repetition reinforces the monotony of isolation, making subtle changes more impactful and unsettling."
+        },
+        {
+          "decision": "Simulated PC Desktop Minigame",
+          "rationale": "Mirrors real-world digital anxiety and adds a layer of meta-narrative tension through familiar interfaces."
+        },
+        {
+          "decision": "Dynamic Audio Landscapes",
+          "rationale": "Sound cues (silence, distant noises, music shifts) are primary drivers of psychological tension."
+        }
+      ]
+    },
+    "my_contributions": {
+      "en": "As part of the Simpang Creative team, I led the technical implementation of audio systems (SFX, ambient soundtracks, dynamic music triggers) and managed asset integration within Unity. I also contributed to game architecture planning, scene organization, and narrative world-building under tight deadlines.",
+      "id": "Sebagai bagian dari tim Simpang Creative, saya memimpin implementasi teknis sistem audio (SFX, lagu latar ambien, pemicu musik dinamis) dan mengelola integrasi aset dalam Unity. Saya juga berkontribusi pada perencanaan arsitektur game, organisasi adegan, dan pembangunan dunia narasi di bawah tenggat waktu ketat."
+    },
+    "key_features": [
+      {
+        "name": "Environmental Storytelling",
+        "description": "Progressive changes in the house (lighting, sounds, object placement) tell the story without explicit exposition."
+      },
+      {
+        "name": "Routine & Repetition Mechanics",
+        "description": "Players perform daily tasks (eating, working, exploring) where familiarity slowly gives way to unease."
+      },
+      {
+        "name": "PC Desktop Minigame",
+        "description": "Interactive simulated Windows environment with pop-up challenges that reflect digital stress."
+      },
+      {
+        "name": "Immersive Audio Design",
+        "description": "Carefully crafted soundscapes that react to player actions and environmental shifts to heighten tension."
+      }
+    ],
+    "content_warning": {
+      "en": "This game contains themes of social isolation, hikikomori lifestyle, loneliness, psychological distress, and claustrophobic environments. Note: No graphic gore is present.",
+      "id": "Game ini mengandung tema isolasi sosial, gaya hidup hikikomori, kesepian, tekanan psikologis, dan lingkungan klaustrofobik. Catatan: Tidak ada gore grafis."
+    },
+    "outcome": {
+      "en": "Currently in active development for Live2Dev GameJam 2026 submission. Early playtests confirm the atmosphere effectively conveys psychological tension through subtle environmental cues and audio design. The project demonstrates rapid prototyping capabilities and collaborative teamwork under pressure.",
+      "id": "Saat ini dalam pengembangan aktif untuk submission Live2Dev GameJam 2026. Uji coba awal mengonfirmasi bahwa atmosfer secara efektif menyampaikan ketegangan psikologis melalui petunjuk lingkungan halus dan desain audio. Proyek ini menunjukkan kemampuan prototipe cepat dan kerja tim kolaboratif di bawah tekanan."
+    }
+  }
+}

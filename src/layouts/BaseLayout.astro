@@ -1,0 +1,545 @@
+---
+import '../styles/global.css';
+import '../styles/animations.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  preloadImage?: string;
+}
+
+const {
+  title,
+  description = '',
+  ogImage = '/og-default.png',
+  canonicalUrl,
+  preloadImage,
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const canonical = canonicalUrl ?? Astro.url.toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Inline language preference initialization -->
+    <script is:inline>
+      (function() {
+        const applyLang = () => {
+          const stored = localStorage.getItem('portfolio-lang');
+          const detected = (stored === 'id' || stored === 'en') ? stored : (navigator.language.startsWith('id') ? 'id' : 'en');
+          document.documentElement.className = 'lang-' + detected;
+        };
+        applyLang();
+        document.addEventListener('astro:after-swap', applyLang);
+      })();
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Critical Font Preload: eliminates FOUT / layout shift -->
+    <link rel="preload" href="/mtfonts/MozillaText-VariableFont_wght.woff" as="font" type="font/woff" crossorigin="anonymous" />
+
+    <!-- LCP Image Preload -->
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
+
+    <!-- Title & Description -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Astro ClientRouter for SPA Navigation with Prefetching -->
+    <ClientRouter />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Page Curtain & Divergent Cursor Styles -->
+    <style is:global>
+      /* Disable default cross-fade view transitions to prevent double-fade glitches */
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation: none !important;
+        mix-blend-mode: normal !important;
+      }
+
+      /* Locked scroll state during page loading */
+      html.is-loading,
+      body.is-loading {
+        overflow: hidden !important;
+        touch-action: none !important;
+      }
+
+      .page-curtain {
+        position: fixed;
+        inset: 0;
+        background-color: #121212;
+        z-index: 99999;
+        pointer-events: none;
+        transform: translateY(0%);
+        will-change: transform;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .curtain-timer {
+        font-family: var(--font-sans);
+        font-size: clamp(3.5rem, 11vw, 7rem);
+        font-weight: 700;
+        color: var(--color-text);
+        letter-spacing: -0.04em;
+        font-variant-numeric: tabular-nums;
+        opacity: 0;
+        transition: opacity 160ms ease;
+      }
+
+      .page-curtain.is-covered .curtain-timer {
+        opacity: 1;
+        animation: pulse-timer 1.5s infinite ease-in-out;
+      }
+
+      @keyframes pulse-timer {
+        0% { transform: scale(0.98); opacity: 0.85; }
+        50% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(0.98); opacity: 0.85; }
+      }
+
+      /* ─── Solid Divergent / Color Inverting Cursor (mix-blend-mode: difference) ─── */
+      .mouse-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        margin-top: -25px;
+        margin-left: -25px;
+        pointer-events: none;
+        z-index: 999999;
+        mix-blend-mode: difference;
+        transform: translate3d(-100px, -100px, 0);
+        will-change: transform;
+        opacity: 0;
+        transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .mouse-cursor::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #ffffff;
+        transform: scale(1);
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+      }
+
+      .mouse-cursor.is-active {
+        opacity: 1;
+      }
+
+      .mouse-cursor.is-hovering::after {
+        transform: scale(2.8);
+      }
+
+      /* Loading Morph State */
+      body.is-loading .mouse-cursor::after {
+        transform: scale(0.4);
+        opacity: 0.6;
+        animation: cursor-pulse 0.8s alternate infinite ease-in-out;
+      }
+
+      @keyframes cursor-pulse {
+        0% { transform: scale(0.3); opacity: 0.3; }
+        100% { transform: scale(0.7); opacity: 0.9; }
+      }
+
+      @media (hover: none) or (pointer: coarse) {
+        .mouse-cursor {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="is-loading">
+    <!-- Solid Inverting / Divergent Cursor with transition:persist -->
+    <div id="mouse-cursor" class="mouse-cursor" transition:persist aria-hidden="true"></div>
+
+    <!-- Curtain Element (Starts covered to show initial load time) -->
+    <div id="page-curtain" class="page-curtain is-covered" aria-hidden="true">
+      <span class="curtain-timer" id="curtain-timer-text">0.00s</span>
+    </div>
+
+    <!-- Script for Synced Curtain Slide & Counter + Automatic Page-wide Prefetching -->
+    <script is:inline>
+      (function() {
+        let startTime = performance.now();
+        let timerInterval;
+
+        const updateTimer = () => {
+          const elapsed = ((performance.now() - startTime) / 1000).toFixed(2);
+          const timerEl = document.getElementById('curtain-timer-text');
+          if (timerEl) timerEl.textContent = `${elapsed}s`;
+        };
+
+        const startTimer = () => {
+          startTime = performance.now();
+          clearInterval(timerInterval);
+          timerInterval = setInterval(updateTimer, 16);
+          // Lock scrolling
+          document.documentElement.classList.add('is-loading');
+          document.body.classList.add('is-loading');
+          window._lenis?.stop();
+        };
+
+        const stopTimer = () => {
+          clearInterval(timerInterval);
+        };
+
+
+
+        const revealPage = (delay = 0) => {
+          stopTimer();
+          updateTimer(); // Ensure final exact load time is rendered
+
+          setTimeout(() => {
+            const curtain = document.getElementById('page-curtain');
+            if (curtain) {
+              curtain.classList.remove('is-covered');
+              requestAnimationFrame(() => {
+                curtain.style.transition = 'transform 100ms cubic-bezier(0.16, 1, 0.3, 1)';
+                curtain.style.transform = 'translateY(-100%)';
+              });
+            }
+
+            // Unlock scrolling
+            document.documentElement.classList.remove('is-loading');
+            document.body.classList.remove('is-loading');
+            window._lenis?.start();
+          }, delay);
+        };
+
+        startTimer();
+
+        // On First Open (initial visit): Show load duration clearly
+        const onInitialLoad = () => {
+          revealPage(0);
+        };
+
+        if (document.readyState === 'complete') {
+          onInitialLoad();
+        } else {
+          window.addEventListener('load', onInitialLoad);
+        }
+
+        // Intercept Astro SPA View Transitions cleanly
+        document.addEventListener('astro:before-preparation', (event) => {
+          const originalLoader = event.loader;
+          startTimer();
+
+          event.loader = async () => {
+            const curtain = document.getElementById('page-curtain');
+            if (curtain) {
+              curtain.style.transition = 'none';
+              curtain.style.transform = 'translateY(100%)';
+
+              // Fire the curtain animation asynchronously (on-flight)
+              requestAnimationFrame(() => {
+                curtain.style.transition = 'transform 150ms cubic-bezier(0.16, 1, 0.3, 1)';
+                curtain.style.transform = 'translateY(0%)';
+                curtain.classList.add('is-covered');
+              });
+            }
+
+            // Fetch & Swap DOM immediately (ZERO DELAY)
+            await originalLoader();
+          };
+        });
+
+        document.addEventListener('astro:page-load', () => {
+          revealPage(0);
+        });
+      })();
+    </script>
+
+    <a href="#main-content" class="skip-link">
+      <span class="t-en">Skip to main content</span>
+      <span class="t-id">Lewati ke konten utama</span>
+    </a>
+
+    <Header />
+
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Lightweight Lenis Smooth Scroll & Divergent Cursor Integration -->
+    <script>
+      import Lenis from 'lenis';
+
+      declare global {
+        interface Window {
+          _lenis?: Lenis;
+          _prefetchedLinks?: Set<string>;
+          _cursorInit?: boolean;
+        }
+      }
+
+      // Initialize Lenis
+      function initLenis() {
+        if (window._lenis) return;
+        const lenis = new Lenis({
+          duration: 1.1,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          wheelMultiplier: 1.5,
+          touchMultiplier: 1.5,
+        });
+
+        window._lenis = lenis;
+
+        function raf(time: number) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      }
+
+      initLenis();
+
+      document.addEventListener('astro:after-swap', () => {
+        window._lenis?.scrollTo(0, { immediate: true });
+      });
+
+      // Smooth Scroll to Hash or Top on Link Click
+      document.addEventListener('click', (e) => {
+        const target = (e.target as HTMLElement).closest('a');
+        if (target && target.href) {
+          try {
+            const url = new URL(target.href);
+            if (url.origin === window.location.origin && url.pathname === window.location.pathname) {
+              if (!url.hash) {
+                e.preventDefault();
+                window._lenis?.scrollTo(0, { duration: 1.2 });
+              } else {
+                const hashTarget = document.querySelector(url.hash);
+                if (hashTarget) {
+                  e.preventDefault();
+                  window._lenis?.scrollTo(hashTarget as HTMLElement, { duration: 1.2, offset: -24 });
+                  history.pushState(null, '', url.hash);
+                }
+              }
+            }
+          } catch (_) {}
+        }
+      });
+
+      // Auto-scroll on initial load or SPA navigation when URL contains a hash (e.g. /resume#cv-section)
+      const handleHashNavigation = () => {
+        if (window.location.hash) {
+          try {
+            const hashTarget = document.querySelector(window.location.hash);
+            if (hashTarget) {
+              setTimeout(() => {
+                window._lenis?.scrollTo(hashTarget as HTMLElement, { duration: 1.2, offset: -24 });
+              }, 250);
+            }
+          } catch (_) {}
+        }
+      };
+
+      document.addEventListener('astro:page-load', handleHashNavigation);
+
+      // ─── Persistent 60/120FPS Solid Divergent / Inverting Cursor Follower ───────────
+      function setupCursor() {
+        if (window._cursorInit) return;
+        window._cursorInit = true;
+
+        if (!window.matchMedia('(pointer: fine)').matches) return;
+
+        // Restore last known mouse position across page loads
+        let savedPos: { x: number; y: number } | null = null;
+        try {
+          const raw = sessionStorage.getItem('_m_pos');
+          if (raw) savedPos = JSON.parse(raw);
+        } catch (e) {}
+
+        let mouseX = savedPos?.x ?? (window.innerWidth / 2);
+        let mouseY = savedPos?.y ?? (window.innerHeight / 2);
+        let currentX = mouseX;
+        let currentY = mouseY;
+        let isHovered = false;
+        let isMoving = false;
+        let initialized = false;
+
+        const getCursorEl = () => document.getElementById('mouse-cursor');
+
+        // Snap initial position immediately on script run
+        const initCursorPos = () => {
+          const cursor = getCursorEl();
+          if (cursor) {
+            cursor.style.setProperty('--mouse-x', `${currentX}px`);
+            cursor.style.setProperty('--mouse-y', `${currentY}px`);
+            cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+            // Auto-check if mouse is over interactive element on load
+            if (savedPos) {
+              const el = document.elementFromPoint(savedPos.x, savedPos.y);
+              const interactive = el?.closest('a, button, input, textarea, select, [role="button"], .project-card__link, .pill-btn, .filter-pill');
+              if (interactive) {
+                isHovered = true;
+                cursor.classList.add('is-hovering');
+              }
+            }
+          }
+        };
+
+        // Run auto-position on very first load
+        initCursorPos();
+
+        const handlePointerMove = (e: MouseEvent) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          // Out-of-bounds boundary check for fast mouse exits
+          if (e.clientX <= 0 || e.clientY <= 0 || e.clientX >= window.innerWidth || e.clientY >= window.innerHeight) {
+            hideCursor();
+            return;
+          }
+
+          // Save position for seamless SPA navigations & reload
+          try {
+            sessionStorage.setItem('_m_pos', JSON.stringify({ x: mouseX, y: mouseY }));
+          } catch (e) {}
+
+          const cursor = getCursorEl();
+          if (cursor && !cursor.classList.contains('is-active')) {
+            cursor.classList.add('is-active');
+          }
+
+          // First movement snap to prevent jump from screen center
+          if (!initialized) {
+            initialized = true;
+            currentX = mouseX;
+            currentY = mouseY;
+          }
+
+          // Check if hovering over clickable / interactive elements
+          const target = e.target as HTMLElement | null;
+          const interactive = target?.closest('a, button, input, textarea, select, [role="button"], .project-card__link, .pill-btn, .filter-pill');
+
+          if (interactive && !isHovered) {
+            isHovered = true;
+            cursor?.classList.add('is-hovering');
+          } else if (!interactive && isHovered) {
+            isHovered = false;
+            cursor?.classList.remove('is-hovering');
+          }
+
+          if (!isMoving) {
+            isMoving = true;
+            requestAnimationFrame(updateCursor);
+          }
+        };
+
+        window.addEventListener('pointermove', handlePointerMove, { passive: true });
+        window.addEventListener('mousemove', handlePointerMove, { passive: true });
+
+        const hideCursor = () => {
+          const cursor = getCursorEl();
+          cursor?.classList.remove('is-active', 'is-hovering');
+          isHovered = false;
+        };
+
+        // 100% Cross-Browser Out-of-Focus & Viewport Exit Detection
+        window.addEventListener('pointerleave', hideCursor);
+        document.addEventListener('mouseleave', hideCursor);
+        document.documentElement.addEventListener('mouseleave', hideCursor);
+        document.body.addEventListener('mouseleave', hideCursor);
+        window.addEventListener('blur', hideCursor);
+        window.addEventListener('mouseout', (e: MouseEvent) => {
+          // Reliable standard cross-browser check when mouse leaves window frame
+          if (!e.relatedTarget && !(e as any).toElement) {
+            hideCursor();
+          }
+        });
+        document.addEventListener('mouseover', (e: MouseEvent) => {
+          const target = e.target as HTMLElement | null;
+          if (target && (target.tagName === 'IFRAME' || target.tagName === 'OBJECT' || target.tagName === 'EMBED')) {
+            hideCursor();
+          }
+        });
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) hideCursor();
+        });
+
+        function updateCursor() {
+          const cursor = getCursorEl();
+          if (!cursor) {
+            isMoving = false;
+            return;
+          }
+
+          const ease = 0.28;
+          currentX += (mouseX - currentX) * ease;
+          currentY += (mouseY - currentY) * ease;
+
+          cursor.style.setProperty('--mouse-x', `${currentX}px`);
+          cursor.style.setProperty('--mouse-y', `${currentY}px`);
+          cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+          if (Math.abs(mouseX - currentX) > 0.1 || Math.abs(mouseY - currentY) > 0.1) {
+            requestAnimationFrame(updateCursor);
+          } else {
+            isMoving = false;
+          }
+        }
+      }
+
+      setupCursor();
+      document.addEventListener('astro:page-load', () => {
+        // Re-check cursor visibility on new page load
+        const cursor = document.getElementById('mouse-cursor');
+        if (cursor) {
+          cursor.classList.remove('is-hovering');
+          if (cursor.style.transform === '') {
+            cursor.classList.remove('is-active');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

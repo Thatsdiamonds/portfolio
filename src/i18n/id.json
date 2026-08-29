@@ -1,0 +1,153 @@
+{
+  "lang": "id",
+  "nav": {
+    "work": "Karya",
+    "about": "Tentang",
+    "resume": "Resume",
+    "toggle_lang": "EN"
+  },
+  "langModal": {
+    "title": "Pilih bahasa Anda",
+    "subtitle": "Pilih bahasa yang ingin Anda gunakan.",
+    "recommended": "Disarankan",
+    "en": "English",
+    "id": "Bahasa Indonesia",
+    "continue": "Lanjutkan"
+  },
+  "hero": {
+    "role": "Pengembang & Desainer",
+    "lead": "Developer & Desainer asal Indonesia. Berfokus membangun sistem web performa tinggi, alat serverless, dan antarmuka digital yang intuitif.",
+    "tagline": "Terus berkembang untuk menciptakan perubahan positif - dari lingkungan sekitar hingga skala global.",
+    "cta_work": "Lihat Karya",
+    "cta_about": "Tentang Saya"
+  },
+  "work": {
+    "section_label": "Karya Terpilih",
+    "hint": "Klik proyek untuk melihat detail",
+    "view_case_study": "Lihat studi kasus →",
+    "view_all": "Semua proyek →"
+  },
+  "statement": {
+    "text": "Spesialisasi saya adalah membangun aplikasi dan sistem web yang kokoh - menjembatani strategi rekayasa perangkat lunak dan eksekusi antarmuka yang presisi."
+  },
+  "experience": {
+    "section_label": "Pengalaman"
+  },
+  "capabilities": {
+    "section_label": "Keahlian"
+  },
+  "about_short": {
+    "section_label": "Tentang",
+    "read_more": "Selengkapnya →"
+  },
+  "contact": {
+    "section_label": "Kontak",
+    "cta": "Ada sesuatu yang layak dibangun?",
+    "body": "Saya terbuka untuk kolaborasi, proyek freelance, dan diskusi tentang masalah-masalah menarik.",
+    "reach": "Hubungi saya di",
+    "copy_email": "Salin email",
+    "copied": "Tersalin!"
+  },
+  "projects": {
+    "page_title": "Karya",
+    "page_subtitle": "Pilihan proyek yang dibangun di bidang web, otomasi, desain, dan lainnya.",
+    "all_projects": "Semua Proyek",
+    "filter_all": "Semua",
+    "view_project": "Lihat proyek",
+    "back": "← Kembali"
+  },
+  "project_detail": {
+    "role": "Peran",
+    "year": "Tahun",
+    "category": "Kategori",
+    "technologies": "Teknologi",
+    "live_site": "Lihat situs →",
+    "github": "GitHub →",
+    "next_project": "Proyek berikutnya"
+  },
+  "about": {
+    "page_title": "Tentang",
+    "bio_label": "Bio",
+    "focus_label": "Fokus Saat Ini",
+    "interests_label": "Minat",
+    "experience_label": "Pengalaman",
+    "contact_label": "Hubungi Saya"
+  },
+  "resume": {
+    "page_title": "Resume",
+    "download": "Unduh PDF",
+    "back": "← Kembali",
+    "view_note": "Unduh atau lihat resume lengkap di bawah ini."
+  },
+  "footer": {
+    "built_with": "Dibangun dengan Astro. Di-deploy di Cloudflare Pages.",
+    "rights": "Hak cipta dilindungi."
+  },
+  "aria": {
+    "main_nav": "Navigasi utama",
+    "toggle_menu": "Buka menu",
+    "close_menu": "Tutup menu",
+    "lang_select": "Pilih bahasa",
+    "back_to_top": "Kembali ke atas"
+  },
+  "error": {
+    "404_title": "Halaman tidak ditemukan",
+    "404_body": "Halaman yang Anda cari tidak ada.",
+    "404_back": "Kembali ke beranda"
+  },
+  "experience_entries": [
+    {
+      "title": "Frontend Developer",
+      "company": "Titik Simpang Creative",
+      "period": "Mei 2025 - Sekarang",
+      "description": "Berkolaborasi dalam desain dan penerapan aplikasi web full-stack. Membangun antarmuka frontend yang responsif dan layanan backend menggunakan framework, API, dan database modern. Mengelola siklus pengembangan lengkap dari konsep hingga penerapan, mengoptimalkan arsitektur aplikasi."
+    },
+    {
+      "title": "IT Technician Intern",
+      "company": "CV. Putra Mandiri Komputer",
+      "period": "Des 2025 - Apr 2026",
+      "description": "Mengelola operasi TI secara menyeluruh: perakitan PC, instalasi Windows, perbaikan perangkat keras, dan pemecahan masalah jaringan. Menyelesaikan masalah perangkat keras/perangkat lunak, mengonfigurasi sistem/driver, dan mendukung infrastruktur teknis harian. Menstandardisasi instalasi OS dengan menghapus bloatware dan mengoptimalkan driver, meningkatkan performa booting dan stabilitas."
+    },
+    {
+      "title": "Instruktur Ekstrakurikuler Coding",
+      "company": "Al Azhar Islamic School Pati",
+      "period": "Jul 2025 - Apr 2026",
+      "description": "Mengajar dasar-dasar pemrograman kepada siswa SD dan SMP menggunakan Python, HTML/CSS, dan Scratch. Merancang pelajaran coding interaktif, template, dan tugas praktik yang berfokus pada logika dan pemecahan masalah."
+    },
+    {
+      "title": "Bendahara & Administrator Otomasi",
+      "company": "Community Youth Savings",
+      "period": "Agu 2025 - Feb 2026",
+      "description": "Mendigitalkan sistem tabungan komunitas mingguan dengan beralih dari catatan berbasis kertas ke sistem keuangan spreadsheet terstruktur. Mengembangkan skrip spreadsheet dan laporan otomatis untuk melacak pembayaran tertunggak dan mempertahankan riwayat pembayaran."
+    }
+  ],
+  "capabilities_list": [
+    "Laravel",
+    "PHP",
+    "Python",
+    "JavaScript",
+    "Vue.js",
+    "SvelteKit",
+    "Astro",
+    "Tailwind CSS",
+    "Supabase",
+    "Cloudflare Pages",
+    "SQLite",
+    "UI/UX Design",
+    "Figma",
+    "Unity",
+    "C#"
+  ],
+  "about_bio": {
+    "short": "Mahasiswa Applied Data Science dengan latar belakang Teknik Komputer dan Jaringan. Memiliki pengalaman pengembangan full-stack yang serbaguna mencakup web, otomasi, UI/UX, dan pengembangan game.",
+    "focus": "Bersemangat membangun produk digital praktis dan berfokus pada pengguna yang didukung oleh solusi berbasis data, integrasi AI lokal, dan otomasi yang efisien.",
+    "interests": [
+      "Data Science",
+      "Pengembangan Web",
+      "UI/UX Design",
+      "Pengembangan Game",
+      "Otomasi"
+    ],
+    "contact_note": "Saya tersedia untuk pekerjaan freelance dan kolaborasi."
+  }
+}

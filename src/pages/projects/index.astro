@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectEntry from '../../components/ProjectEntry.astro';
+import T from '../../components/T.astro';
+import { getCollection } from 'astro:content';
+import { SITE_CONFIG } from '../../config';
+
+const allProjects = await getCollection('projects');
+const projects = allProjects
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<BaseLayout
+  title={`selected work - ${SITE_CONFIG.name}`}
+  description={`Selected work and projects by ${SITE_CONFIG.name}.`}
+>
+  <div class="selected-work-page">
+    <!-- Header -->
+    <header class="work-header container">
+      <div class="work-header__inner">
+        <h1 class="work-title display">selected work</h1>
+        <span class="work-header__dot" aria-hidden="true">●</span>
+      </div>
+    </header>
+
+    <!-- Stacked Large Project Cards List -->
+    <main class="container work-list-container">
+      <div class="work-stacked-list">
+        {projects.map((project, i) => (
+          <ProjectEntry
+            slug={project.id.replace(/\.json$/, '')}
+            index={i + 1}
+            titleEn={project.data.title?.en || project.data.metadata?.title?.en || 'Project'}
+            titleId={project.data.title?.id || project.data.metadata?.title?.id || 'Proyek'}
+            descriptionEn={project.data.description?.en || project.data.metadata?.subtitle?.en || ''}
+            descriptionId={project.data.description?.id || project.data.metadata?.subtitle?.id || ''}
+            category={project.data.category || project.data.metadata?.category || ''}
+            year={project.data.year || 2025}
+            image={project.data.image}
+            technologies={project.data.technologies || []}
+          />
+        ))}
+      </div>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .selected-work-page {
+    padding-top: calc(4rem + var(--space-16));
+    padding-bottom: var(--space-32);
+  }
+
+  .work-header {
+    margin-bottom: var(--space-16);
+  }
+
+  .work-header__inner {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .work-title {
+    font-size: var(--text-hero);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    color: var(--color-text);
+  }
+
+  .work-header__dot {
+    font-size: var(--text-2xl);
+    color: var(--color-text-muted);
+    opacity: 0.6;
+  }
+
+  /* Stacked List */
+  .work-list-container {
+    max-width: 960px;
+  }
+
+  .work-stacked-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+</style>

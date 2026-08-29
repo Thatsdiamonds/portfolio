@@ -1,0 +1,373 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectEntry from '../components/ProjectEntry.astro';
+import T from '../components/T.astro';
+import { getCollection } from 'astro:content';
+import en from '../i18n/en.json';
+import id from '../i18n/id.json';
+import { SITE_CONFIG } from '../config';
+
+
+const allProjects = await getCollection('projects');
+const projects = allProjects
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+
+const featured = projects.filter((p) => p.data.featured);
+const exp = en.experience_entries;
+---
+
+<BaseLayout
+  title={`${SITE_CONFIG.name} - Developer & Designer`}
+  description={`Personal portfolio of ${SITE_CONFIG.name} - Developer and designer focused on building useful, considered, and well-made digital products.`}
+>
+  <!-- ─── 1. HERO SECTION ─────────────── -->
+  <section class="hero-section" aria-label="Introduction">
+    <div class="container container--hero">
+      <h1 class="hero-title display">
+        {SITE_CONFIG.name}
+      </h1>
+      <p class="hero-lead">
+        <T keyName="hero.lead" />
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── 2. SELECTED WORK (2-Column Card Grid) ──────────────── -->
+  <section class="section-container" id="work" aria-label="Selected Work">
+    <div class="container">
+      <div class="section-headline">
+        <h2 class="section-headline__title"><T keyName="work.section_label" /></h2>
+        <span class="section-hint"><T keyName="work.hint" /></span>
+      </div>
+
+      <div class="projects-grid">
+        {featured.map((project, i) => (
+          <ProjectEntry
+            slug={project.id.replace(/\.json$/, '')}
+            index={i + 1}
+            titleEn={project.data.title?.en || project.data.metadata?.title?.en || 'Project'}
+            titleId={project.data.title?.id || project.data.metadata?.title?.id || 'Proyek'}
+            descriptionEn={project.data.description?.en || project.data.metadata?.subtitle?.en || ''}
+            descriptionId={project.data.description?.id || project.data.metadata?.subtitle?.id || ''}
+            category={project.data.category || project.data.metadata?.category || ''}
+            year={project.data.year || 2025}
+            image={project.data.image}
+            technologies={project.data.technologies || []}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 3. LARGE EDITORIAL STATEMENT ───────────────────────── -->
+  <section class="section-container statement-section" aria-label="Statement">
+    <div class="container container--narrow">
+      <blockquote class="editorial-statement scroll-reveal-text">
+        <T keyName="statement.text" />
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ─── 4. ABOUT ME PREVIEW ────────────────────────────────── -->
+  <section class="section-container" id="about-preview" aria-label="About Me">
+    <div class="container">
+      <div class="about-split">
+        <!-- Photo on Right, Bio on Left -->
+        <div class="about-split__text">
+          <p class="meta about-bio-p">
+            <T keyName="about_bio.short" />
+          </p>
+          <p class="meta about-bio-p">
+            <T keyName="about_bio.focus" />
+          </p>
+
+          <div class="about-action">
+            <a href="/resume" class="pill-btn">
+              <T keyName="resume.download" />
+            </a>
+          </div>
+        </div>
+
+        <div class="about-split__image">
+          <div class="portrait-frame">
+            <img src={SITE_CONFIG.profileImage} alt={SITE_CONFIG.name} class="portrait-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5. EXPERIENCE OVERVIEW (Clean Table) ────────────────── -->
+  <section class="section-container" id="experience" aria-label="Experience Overview">
+    <div class="container">
+      <div class="section-headline">
+        <h2 class="section-headline__title">experience overview</h2>
+      </div>
+
+      <div class="exp-table">
+        {exp.map((itemEn, i) => {
+          const itemId = id.experience_entries[i];
+          return (
+            <div class="exp-table-row">
+              <div class="exp-table-col exp-table-col--role">
+                <h3 class="exp-role-title">
+                  <span class="t-en">{itemEn.title}</span>
+                  <span class="t-id">{itemId.title}</span>
+                </h3>
+                <p class="meta exp-company">
+                  <span class="t-en">{itemEn.company}</span>
+                  <span class="t-id">{itemId.company}</span>
+                </p>
+              </div>
+
+              <div class="exp-table-col exp-table-col--desc meta">
+                <span class="t-en">{itemEn.description}</span>
+                <span class="t-id">{itemId.description}</span>
+              </div>
+
+              <div class="exp-table-col exp-table-col--period meta">
+                <span class="t-en">{itemEn.period}</span>
+                <span class="t-id">{itemId.period}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ─── Hero Section ────────────────────────────────── */
+  .hero-section {
+    padding-top: calc(4rem + var(--space-20));
+    padding-bottom: var(--space-16);
+    text-align: center;
+  }
+
+  .container--hero {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .hero-title {
+    font-size: var(--text-hero);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    color: var(--color-text);
+  }
+
+  .hero-lead {
+    font-size: clamp(var(--text-md), 2.2vw, var(--text-lg));
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    max-width: 58ch;
+  }
+
+  /* ─── Section Container Spacing ───────────────────── */
+  .section-container {
+    padding-block: var(--space-16);
+  }
+
+  /* ─── Selected Work Stacked Cards ────────────────── */
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    max-width: 960px;
+    margin-inline: auto;
+  }
+
+  /* ─── Editorial Statement ─────────────────────────── */
+  .statement-section {
+    padding-block: var(--space-20);
+    text-align: center;
+  }
+
+  .editorial-statement {
+    font-size: clamp(var(--text-xl), 3.2vw, var(--text-2xl));
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: #888888;
+  }
+
+  /* ─── About Split Layout ──────────────────────────── */
+  .about-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .about-split {
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-16);
+    }
+  }
+
+  .about-bio-p {
+    margin-bottom: var(--space-4);
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+
+  .about-action {
+    margin-top: var(--space-6);
+  }
+
+  .portrait-frame {
+    aspect-ratio: 4 / 4.5;
+    background-color: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portrait-placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ─── Experience Overview Table ───────────────────── */
+  .exp-table {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .exp-table-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-block: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 768px) {
+    .exp-table-row {
+      grid-template-columns: 1.2fr 2fr 120px;
+      align-items: baseline;
+      gap: var(--space-8);
+    }
+  }
+
+  .exp-role-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .exp-company {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .exp-table-col--desc {
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+  }
+
+  .exp-table-col--period {
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    text-align: right;
+  }
+
+  @media (max-width: 767px) {
+    .exp-table-col--period {
+      text-align: left;
+    }
+  }
+
+  .section-headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .section-hint {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    opacity: 0.8;
+  }
+</style>
+
+<style is:global>
+  /* ─── Scroll Reveal Word Styles ───────────────────── */
+  .reveal-word {
+    transition: opacity 0.1s ease, filter 0.1s ease;
+    will-change: opacity, filter;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // 1. Scroll-sync word reveal for statement section
+    const statements = document.querySelectorAll('.scroll-reveal-text .t-en, .scroll-reveal-text .t-id');
+    statements.forEach(el => {
+      // Split text into words only if not already split
+      if (!el.querySelector('.reveal-word')) {
+        const text = el.textContent || '';
+        const words = text.split(' ').filter(w => w.trim().length > 0);
+        el.innerHTML = words.map(w => `<span class="reveal-word">${w}</span>`).join(' ');
+      }
+    });
+
+    const revealSections = document.querySelectorAll('.statement-section');
+    
+    const updateReveal = () => {
+      revealSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Start revealing when the element enters the bottom 25% of the screen
+        // Finish revealing when it reaches the middle of the screen
+        const start = windowHeight * 0.75;
+        const end = windowHeight * 0.35;
+        
+        let progress = (start - rect.top) / (start - end);
+        progress = Math.max(0, Math.min(1, progress));
+        
+        // Update words opacity based on scroll progress
+        const words = section.querySelectorAll('.reveal-word');
+        words.forEach((word, index) => {
+          const wordProgress = (progress * words.length) - index;
+          // opacity between 0.1 (unfocused) and 1 (focused)
+          const opacity = 0.1 + Math.max(0, Math.min(0.9, wordProgress));
+          // add subtle blur to unfocused words
+          const blurAmt = Math.max(0, 4 - (wordProgress * 4));
+          const el = word as HTMLElement;
+          el.style.opacity = opacity.toString();
+          el.style.filter = `blur(${blurAmt}px)`;
+        });
+      });
+    };
+
+    window.addEventListener('scroll', updateReveal, { passive: true });
+    // Also bind to lenis if available
+    if (window._lenis) {
+      window._lenis.on('scroll', updateReveal);
+    }
+    
+    // Initial trigger
+    updateReveal();
+  });
+</script>

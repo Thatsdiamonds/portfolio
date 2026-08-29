@@ -1,0 +1,124 @@
+{
+  "title": {
+    "en": "Church Inventory",
+    "id": "Church Inventory"
+  },
+  "description": {
+    "en": "A web application for managing and tracking church assets, equipment, and inventory with a clean administrative interface.",
+    "id": "Aplikasi web untuk mengelola dan melacak aset, peralatan, dan inventaris gereja dengan antarmuka administratif yang bersih."
+  },
+  "year": 2026,
+  "role": {
+    "en": "Fullstack Developer",
+    "id": "Fullstack Developer"
+  },
+  "category": "Web Application",
+  "technologies": [
+    "Laravel",
+    "PHP",
+    "SQLite",
+    "JavaScript"
+  ],
+  "featured": true,
+  "order": 2,
+  "source_url": "https://drive.google.com/drive/folders/placeholder-church-inventory",
+  "context": {
+    "en": "A church organization in Pati struggled to manage their growing inventory of assets using paper-based records and spreadsheets. They needed a lightweight, portable system that could be deployed on any Windows laptop without requiring complex server infrastructure or IT expertise.",
+    "id": "Sebuah organisasi gereja di Pati kesulitan mengelola inventaris aset yang terus bertambah menggunakan catatan berbasis kertas dan spreadsheet. Mereka membutuhkan sistem yang ringan dan portabel yang dapat dijalankan di laptop Windows apa pun tanpa memerlukan infrastruktur server yang rumit atau keahlian TI."
+  },
+  "problem": {
+    "en": "Manual tracking led to data inconsistency, slow asset lookup, and difficulty generating accurate reports. Traditional web-based inventory systems required server installation that non-technical staff could not manage. Image storage consumed excessive resources on low-spec hardware.",
+    "id": "Pelacakan manual menyebabkan ketidakonsistenan data, pencarian aset yang lambat, dan kesulitan menghasilkan laporan akurat. Sistem inventaris berbasis web tradisional memerlukan instalasi server yang tidak dapat dikelola oleh staf non-teknis. Penyimpanan gambar mengonsumsi sumber daya berlebihan pada perangkat dengan spesifikasi rendah."
+  },
+  "solution": {
+    "en": "Built a portable Laravel 10 application with SQLite database that runs without server installation via Laragon Portable. Implemented cascading update logic for unique asset codes (UQCode) ensuring automatic data integrity. Created dual-version image storage (thumbnails + full preview) reducing load times by ~60%. Developed automated .bat deployment scripts for one-click installation.",
+    "id": "Membangun aplikasi Laravel 10 portabel dengan database SQLite yang berjalan tanpa instalasi server melalui Laragon Portable. Menerapkan logika pembaruan berjenjang untuk kode aset unik (UQCode) yang menjamin integritas data otomatis. Membuat penyimpanan gambar dua versi (thumbnail + pratinjau penuh) mengurangi waktu muat hingga ~60%. Mengembangkan skrip deployment .bat otomatis untuk instalasi satu kali klik."
+  },
+  "outcome": {
+    "en": "Successfully deployed to production environment serving church inventory operations. Non-technical users could install and run the system via single script click. Data integrity maintained across thousands of records during category changes. Page load performance significantly improved on client laptops with limited specs.",
+    "id": "Berhasil dideploy ke lingkungan produksi yang melayani operasi inventaris gereja. Pengguna non-teknis dapat menginstal dan menjalankan sistem melalui satu kali klik skrip. Integritas data terjaga di ribuan rekaman saat perubahan kategori. Kinerja loading halaman meningkat signifikan pada laptop klien dengan spesifikasi terbatas."
+  },
+  "challenges": {
+    "en": "Designing a portable architecture that works offline. Implementing cascading updates without breaking existing data. Optimizing image handling for low-bandwidth environments.",
+    "id": "Merancang arsitektur portabel yang bekerja offline. Menerapkan pembaruan berjenjang tanpa merusak data yang sudah ada. Mengoptimalkan penanganan gambar untuk lingkungan dengan bandwidth rendah."
+  },
+  "lessons_learned": {
+    "en": "Understanding that portability doesn't mean sacrificing functionality. Users need abstraction from technical complexity. Performance optimization is as important as feature development.",
+    "id": "Memahami bahwa portabilitas tidak berarti mengorbankan fungsionalitas. Pengguna perlu abstraksi dari kompleksitas teknis. Optimasi kinerja sama pentingnya dengan pengembangan fitur."
+  },
+  "technical_details": {
+    "architecture": "Portable Web Application Architecture",
+    "database_strategy": "SQLite with file-based persistence",
+    "deployment_method": "Windows Batch Script Wrapper",
+    "key_implementations": [
+      "Cascading Update Logic for UQCode integrity",
+      "Dual-Version Image Storage System",
+      "Zero-Config Server Setup via Laragon Portable",
+      "Production Database Migration Safety"
+    ]
+  },
+  "metrics": {
+    "load_time_reduction": "~60%",
+    "records_managed": "Thousands of asset records",
+    "deployment_time": "< 5 minutes with automated script",
+    "user_adoption": "Non-technical staff able to operate independently"
+  },
+  "image": "/images/church-inv/thumbnail.webp",
+  "gallery_images": [
+    {
+      "src": "/images/church-inv/dasboard.webp",
+      "caption": {
+        "en": "Dashboard Overview with Real-Time Asset Statistics & Inventory Metrics",
+        "id": "Tampilan Dashboard Utama dengan Statistik & Metrik Inventaris Real-time"
+      },
+      "alt": {
+        "en": "Church Inventory Dashboard",
+        "id": "Dashboard Inventaris Gereja"
+      }
+    },
+    {
+      "src": "/images/church-inv/assets.webp",
+      "caption": {
+        "en": "Master Inventory Management with Fast Search & Category Categorization",
+        "id": "Manajemen Data Inventaris Utama dengan Pencarian Cepat & Kategori Aset"
+      },
+      "alt": {
+        "en": "Master Asset Inventory View",
+        "id": "Tampilan Master Data Aset"
+      }
+    },
+    {
+      "src": "/images/church-inv/print_qr_labels.webp",
+      "caption": {
+        "en": "Automated Unique Asset QR Code Label Generator for Physical Equipment Tagging",
+        "id": "Generator Label QR Code Aset Unik untuk Pelabelan Fisik Peralatan"
+      },
+      "alt": {
+        "en": "QR Code Print Labels",
+        "id": "Cetak Label QR Code Aset"
+      }
+    },
+    {
+      "src": "/images/church-inv/assets_report.webp",
+      "caption": {
+        "en": "Comprehensive Audit & Asset Export Reports with Summary Breakdowns",
+        "id": "Laporan Rekap & Audit Aset Lengkap dengan Rincian Nilai & Kondisi"
+      },
+      "alt": {
+        "en": "Asset Report Generation",
+        "id": "Laporan Data Aset"
+      }
+    },
+    {
+      "src": "/images/church-inv/data_backup_restore_system.webp",
+      "caption": {
+        "en": "One-Click Offline Data Backup & Restore Utility for Zero-Downtime Data Safety",
+        "id": "Utilitas Backup & Restore Data Satu Klik untuk Keamanan Data Tanpa Server Eksternal"
+      },
+      "alt": {
+        "en": "Data Backup and Restore Interface",
+        "id": "Antarmuka Backup dan Restore Data"
+      }
+    }
+  ]
+}

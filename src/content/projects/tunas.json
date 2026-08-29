@@ -1,0 +1,213 @@
+{
+  "title": {
+    "en": "TUNAS",
+    "id": "TUNAS"
+  },
+  "description": {
+    "en": "Smart Agriculture Companion with AI & Satellite Integration empowering smallholder farmers.",
+    "id": "Pendamping Pertanian Cerdas dengan Integrasi AI & Satelit yang memberdayakan petani kecil."
+  },
+  "year": 2025,
+  "role": {
+    "en": "UI/UX Designer & Product Lead",
+    "id": "UI/UX Designer & Product Lead"
+  },
+  "category": "AgriTech · Mobile App · AI",
+  "technologies": [
+    "Figma",
+    "User Research",
+    "Prototyping",
+    "Design Systems",
+    "Mobile UI/UX"
+  ],
+  "featured": true,
+  "order": 1,
+  "prototype_url": "https://www.figma.com/proto/DosQ50wzz8g82dGbs5YeSt/UI-UX-DESIGN-GENETIC---UTRIX?node-id=1391-7851&starting-point-node-id=1391%3A7851",
+  "design_url": "https://www.figma.com/design/DosQ50wzz8g82dGbs5YeSt/UI-UX-DESIGN-GENETIC---UTRIX?node-id=1391-7859",
+  "embed_url": "https://embed.figma.com/design/DosQ50wzz8g82dGbs5YeSt/UI-UX-DESIGN-GENETIC---UTRIX?&starting-point-node-id=1391%3A7851&embed-host=share",
+  "competition": {
+    "en": "GENETIC 2025 - 2nd Winner (Universitas Semarang)",
+    "id": "GENETIC 2025 - Juara 2 (Universitas Semarang)"
+  },
+  "period": "Feb 2025 – Jun 2025",
+  "image": "/images/tunas/thumbnail.webp",
+  "context_image": "/images/tunas/satelite_view.webp",
+  "solution_image": "/images/tunas/bug_scan_result.webp",
+  "gallery_images": [
+    {
+      "src": "/images/tunas/dashboard.webp",
+      "caption": {
+        "en": "Home Dashboard with Satellite Land Monitoring & Weather Stats",
+        "id": "Dashboard Utama dengan Pemantauan Lahan Satelit & Statistik Cuaca"
+      },
+      "alt": {
+        "en": "TUNAS Home Screen showing Jerry Jerricho's farm status",
+        "id": "Layar Beranda TUNAS menampilkan status lahan Jerry Jerricho"
+      }
+    },
+    {
+      "src": "/images/tunas/satelite_view.webp",
+      "caption": {
+        "en": "Satellite Land Monitoring & Real-Time Soil Telemetry",
+        "id": "Pemantauan Lahan Satelit & Telemetri Tanah Real-time"
+      },
+      "alt": {
+        "en": "Satellite land telemetry interface showing crop health",
+        "id": "Antarmuka telemetri lahan satelit menampilkan kesehatan tanaman"
+      }
+    },
+    {
+      "src": "/images/tunas/bug_scan_result.webp",
+      "caption": {
+        "en": "AI Pest Identification & Instant Plant Leaf Diagnosis",
+        "id": "Fitur Identifikasi Hama AI & Diagnosis Daun Tanaman Instan"
+      },
+      "alt": {
+        "en": "AI scan result showing pest detection diagnosis and treatment",
+        "id": "Hasil scan AI menampilkan diagnosis deteksi hama dan penanganan"
+      }
+    },
+    {
+      "src": "/images/tunas/market_plan.webp",
+      "caption": {
+        "en": "TUNAS Market: Commodity Price Analytics & Planting Calendar",
+        "id": "TUNAS Market: Analitik Harga Komoditas & Kalender Tanam"
+      },
+      "alt": {
+        "en": "Market analytics and planting schedule planner",
+        "id": "Analitik pasar dan perencana jadwal tanam"
+      }
+    },
+    {
+      "src": "/images/tunas/edit_marketplace_item.webp",
+      "caption": {
+        "en": "Direct Selling & Agri-Products Marketplace Management",
+        "id": "Penjualan Langsung & Manajemen Produk Marketplace Pertanian"
+      },
+      "alt": {
+        "en": "Marketplace item creation and price setting interface",
+        "id": "Antarmuka pembuatan produk marketplace dan pengaturan harga"
+      }
+    },
+    {
+      "src": "/images/tunas/education_quiz.webp",
+      "caption": {
+        "en": "Gamified Farmer Education Hub with Interactive Quizzes & Badges",
+        "id": "Hub Edukasi Petani Berbasis Gamifikasi dengan Kuis & Lencana"
+      },
+      "alt": {
+        "en": "Interactive education module and badge reward screen",
+        "id": "Modul edukasi interaktif dan layar hadiah lencana"
+      }
+    }
+  ],
+  "metadata": {
+    "title": {
+      "en": "TUNAS",
+      "id": "TUNAS"
+    },
+    "subtitle": {
+      "en": "Smart Agriculture Companion with AI & Satellite Integration",
+      "id": "Pendamping Pertanian Cerdas dengan Integrasi AI & Satelit"
+    },
+    "role": {
+      "en": "UI/UX Designer & Product Lead",
+      "id": "UI/UX Designer & Product Lead"
+    },
+    "competition": {
+      "en": "GENETIC 2025 - 2nd Winner (Universitas Semarang)",
+      "id": "GENETIC 2025 - Juara 2 (Universitas Semarang)"
+    },
+    "period": "Feb 2025 – Jun 2025",
+    "category": "AgriTech · Mobile App · AI",
+    "tools": [
+      "Figma",
+      "User Research",
+      "Prototyping",
+      "Design Systems"
+    ],
+    "featured": true
+  },
+  "content": {
+    "overview": {
+      "en": "Indonesia is an agrarian nation, yet farmers still rely on generational experience to face modern challenges: unpredictable weather, elusive pests, and volatile market prices. Extension workers exist but can't be everywhere. TUNAS is the 'always-there' extension worker - a digital companion empowering farmers with satellite monitoring, AI diagnostics, and direct market access.",
+      "id": "Indonesia adalah negara agraris, namun petani masih mengandalkan pengalaman turun-temurun untuk menghadapi tantangan modern: cuaca tak terduga, hama yang sulit dideteksi, dan fluktuasi harga pasar. Penyuluh pertanian ada tetapi tidak bisa menjangkau setiap petani di setiap lahan. TUNAS adalah 'penyuluh yang selalu ada' - pendamping digital yang memberdayakan petani dengan pemantauan satelit, diagnostik AI, dan akses pasar langsung."
+    },
+    "problem_statement": {
+      "en": "Smallholder farmers struggle with three critical gaps: 1) Lack of real-time data on land conditions (soil moisture, weather), 2) Difficulty identifying pests/diseases leading to crop loss, 3) Isolation from market information and peer knowledge. Traditional methods result in significant yield losses and economic vulnerability.",
+      "id": "Petani kecil berjuang dengan tiga kesenjangan kritis: 1) Kurangnya data real-time tentang kondisi lahan (kelembaban tanah, cuaca), 2) Kesulitan mengidentifikasi hama/penyakit yang menyebabkan gagal panen, 3) Terisolasi dari informasi pasar dan pengetahuan sebaya. Metode tradisional mengakibatkan kerugian hasil panen yang signifikan dan kerentanan ekonomi."
+    },
+    "target_user": {
+      "name": "Jerry Jerricho",
+      "age": 25,
+      "occupation": "Young Farmer",
+      "location": "Pati, Central Java",
+      "goals": [
+        "Increase harvest yield with modern tech",
+        "Find quick solutions for pest problems",
+        "Sell produce directly without middlemen",
+        "Share and learn from other farmers"
+      ],
+      "pain_points": [
+        "Hard to identify pest types and treatments",
+        "Minimal access to trusted agricultural info",
+        "Sales dependent on traditional intermediaries",
+        "Lack of active digital farmer community"
+      ]
+    },
+    "design_process": {
+      "steps": [
+        "Competitive Analysis (Plantix, local apps)",
+        "User Research & Persona Development",
+        "Information Architecture & User Flows",
+        "Wireframing (Low-Fi)",
+        "Visual Design & Design System",
+        "Interactive High-Fidelity Prototyping"
+      ],
+      "principles_applied": [
+        {
+          "law": "Fitts's Law",
+          "application": "Large, easily reachable buttons in bottom navigation bar for one-thumb operation in the field."
+        },
+        {
+          "law": "Hick's Law",
+          "application": "Simplified menu structure to reduce decision fatigue; key features visible on home screen without deep nesting."
+        },
+        {
+          "law": "Visual Hierarchy",
+          "application": "Critical data (weather, soil status) highlighted with size and color contrast for instant recognition."
+        }
+      ]
+    },
+    "key_features": [
+      {
+        "name": "Satellite Land Monitoring",
+        "description": "Real-time view of land conditions via satellite imagery, including temperature, humidity, light levels, weather forecasts, and harvest estimates. AI analyzes crop health and suggests actionable recommendations."
+      },
+      {
+        "name": "AI Pest Assistant",
+        "description": "Snap a photo of affected plants → AI instantly identifies pest/disease type, provides diagnosis, and recommends specific products available in TUNAS Market."
+      },
+      {
+        "name": "Smart Chat AI",
+        "description": "Beyond a chatbot: an intelligent assistant for farming queries (fertilizer timing, weather, market prices) with natural language understanding."
+      },
+      {
+        "name": "Global Community Forum",
+        "description": "Connect with farmers locally and internationally. Auto-translation breaks language barriers. Anonymous reporting system maintains community safety and trust."
+      },
+      {
+        "name": "TUNAS Market",
+        "description": "Direct buying/selling platform for seeds, fertilizers, tools, and harvests. Includes market analytics, commodity price checks, and store creation for users."
+      },
+      {
+        "name": "Gamified Education Hub",
+        "description": "Interactive video modules on farming techniques. Earn rare badges upon completion to showcase in the community profile."
+      }
+    ],
+    "outcome": {
+      "en": "Won 2nd Place at GENETIC 2025 for innovative fusion of AI, satellite tech, and community-driven design. The prototype demonstrated a clear path to reducing crop loss by 30% and increasing farmer income through direct market access. Validated that accessible, minimal-interface design is crucial for adoption among non-tech-savvy users.",
+      "id": "Menang Juara 2 di GENETIC 2025 atas inovasi penggabungan AI, teknologi satelit, dan desain berbasis komunitas. Prototipe menunjukkan jalur jelas untuk mengurangi kehilangan hasil panen hingga 30% dan meningkatkan pendapatan petani melalui akses pasar langsung. Tervalidasi bahwa desain antarmuka minimalis yang mudah diakses sangat penting untuk adopsi oleh pengguna non-teknis."
+    }
+  }
+}

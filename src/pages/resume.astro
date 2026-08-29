@@ -1,0 +1,314 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import T from '../components/T.astro';
+import en from '../i18n/en.json';
+import id from '../i18n/id.json';
+import { SITE_CONFIG } from '../config';
+
+const exp = en.experience_entries;
+---
+
+<BaseLayout
+  title={`resume - ${SITE_CONFIG.name}`}
+  description={`Curriculum vitae and formal experience overview of ${SITE_CONFIG.name} - Developer & Designer.`}
+>
+  <div class="resume-page container container--narrow">
+    <!-- Header -->
+    <header class="resume-header">
+      <h1 class="resume-title display">
+        resume
+      </h1>
+
+      <p class="meta resume-lead">
+        <T keyName="resume.view_note" />
+      </p>
+
+      <div class="resume-actions">
+        <a
+          href="#cv-section"
+          class="pill-btn"
+          id="btn-scroll-cv"
+          aria-label="Scroll to full CV section"
+        >
+          <span class="t-en">View CV ↓</span>
+          <span class="t-id">Lihat CV ↓</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Experience Table -->
+    <section class="section-container">
+      <div class="section-headline" style="text-align: left;">
+        <h2 class="section-headline__title">experience overview</h2>
+      </div>
+
+      <div class="exp-table">
+        {exp.map((itemEn, i) => {
+          const itemId = id.experience_entries[i];
+          return (
+            <div class="exp-table-row">
+              <div class="exp-table-col exp-table-col--role">
+                <h3 class="exp-role-title">
+                  <span class="t-en">{itemEn.title}</span>
+                  <span class="t-id">{itemId.title}</span>
+                </h3>
+                <p class="meta exp-company">
+                  <span class="t-en">{itemEn.company}</span>
+                  <span class="t-id">{itemId.company}</span>
+                </p>
+              </div>
+
+              <div class="exp-table-col exp-table-col--desc meta">
+                <span class="t-en">{itemEn.description}</span>
+                <span class="t-id">{itemId.description}</span>
+              </div>
+
+              <div class="exp-table-col exp-table-col--period meta">
+                <span class="t-en">{itemEn.period}</span>
+                <span class="t-id">{itemId.period}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- Capabilities / Skills Section -->
+    <section class="section-container">
+      <div class="section-headline" style="text-align: left;">
+        <h2 class="section-headline__title">skills & technologies</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Frontend & Web</h3>
+          <div class="skill-tags">
+            <span class="tag-badge">Astro</span>
+            <span class="tag-badge">TypeScript</span>
+            <span class="tag-badge">JavaScript (ES6+)</span>
+            <span class="tag-badge">HTML5 / Modern CSS</span>
+            <span class="tag-badge">UI/UX Design</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Backend & Cloud</h3>
+          <div class="skill-tags">
+            <span class="tag-badge">Node.js</span>
+            <span class="tag-badge">Python</span>
+            <span class="tag-badge">Serverless</span>
+            <span class="tag-badge">REST & GraphQL APIs</span>
+            <span class="tag-badge">Cloudflare Workers/Pages</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Tools & Workflows</h3>
+          <div class="skill-tags">
+            <span class="tag-badge">Git & GitHub</span>
+            <span class="tag-badge">Figma</span>
+            <span class="tag-badge">AI Workflows</span>
+            <span class="tag-badge">Automation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV Access Section -->
+    <section class="section-container" id="cv-section">
+      <div class="section-headline" style="text-align: left;">
+        <h2 class="section-headline__title">full cv / resume</h2>
+      </div>
+
+      <div class="cv-card">
+        <div class="cv-card__info">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+          <div>
+            <p class="cv-card__title">
+              <span class="t-en">{SITE_CONFIG.name} — CV</span>
+              <span class="t-id">{SITE_CONFIG.name} — CV</span>
+            </p>
+            <p class="meta cv-card__meta">
+              <span class="t-en">Web Developer · UI/UX Designer · Data Science Student</span>
+              <span class="t-id">Web Developer · UI/UX Designer · Mahasiswa Data Science</span>
+            </p>
+          </div>
+        </div>
+        <div class="cv-card__actions">
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pill-btn"
+            id="btn-view-cv"
+            aria-label="View CV PDF in new tab"
+          >
+            <span class="t-en">View CV ↗</span>
+            <span class="t-id">Lihat CV ↗</span>
+          </a>
+          <a
+            href="/cv.pdf"
+            download
+            class="pill-btn pill-btn--ghost"
+            id="btn-download-cv"
+            aria-label="Download CV PDF"
+          >
+            <T keyName="resume.download" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .resume-page {
+    padding-top: calc(4rem + var(--space-16));
+    padding-bottom: var(--space-32);
+  }
+
+  .resume-header {
+    margin-bottom: var(--space-12);
+  }
+
+  .resume-title {
+    font-size: var(--text-hero);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    margin-bottom: var(--space-4);
+  }
+
+  .resume-lead {
+    font-size: var(--text-md);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+  }
+
+  .resume-actions {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  /* Section Spacing */
+  .section-container {
+    margin-bottom: var(--space-16);
+  }
+
+  /* Table styling */
+  .exp-table {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .exp-table-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-block: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 768px) {
+    .exp-table-row {
+      grid-template-columns: 1.2fr 2fr 120px;
+      align-items: baseline;
+      gap: var(--space-8);
+    }
+  }
+
+  .exp-role-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .exp-company {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .exp-table-col--desc {
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+  }
+
+  .exp-table-col--period {
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    text-align: right;
+  }
+
+  @media (max-width: 767px) {
+    .exp-table-col--period {
+      text-align: left;
+    }
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .skill-category {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .skill-cat-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  /* CV Card */
+  .cv-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding: var(--space-6) var(--space-8);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    flex-wrap: wrap;
+  }
+
+  .cv-card__info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    color: var(--color-text-muted);
+  }
+
+  .cv-card__title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+    text-transform: lowercase;
+  }
+
+  .cv-card__meta {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .cv-card__actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+</style>

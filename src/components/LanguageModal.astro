@@ -1,0 +1,251 @@
+---
+/**
+ * LanguageModal - Non-blocking bottom-right language selector.
+ * Detects browser language, recommends EN or ID with architectural studio styling.
+ * Preference persists via localStorage.
+ */
+import en from '../i18n/en.json';
+import id from '../i18n/id.json';
+---
+
+<div
+  class="lang-modal-overlay"
+  id="lang-modal"
+  role="dialog"
+  aria-modal="false"
+  aria-labelledby="lang-modal-title"
+  aria-hidden="true"
+  hidden
+>
+  <div class="lang-modal">
+    <div class="lang-modal__bar meta-mono">
+      <span>SYSTEM // LANGUAGE DETECTED</span>
+      <button
+        class="lang-modal__close-btn"
+        id="close-lang-modal"
+        aria-label="Dismiss"
+        type="button"
+      >
+        ✕
+      </button>
+    </div>
+
+    <div class="lang-modal__content">
+      <p class="lang-modal__title display" id="lang-modal-title">
+        <span class="t-en">{en.langModal.title}</span>
+        <span class="t-id">{id.langModal.title}</span>
+      </p>
+      <p class="lang-modal__subtitle meta">
+        <span class="t-en">{en.langModal.subtitle}</span>
+        <span class="t-id">{id.langModal.subtitle}</span>
+      </p>
+
+      <div class="lang-modal__options" id="lang-options">
+        <button
+          class="lang-modal__btn"
+          data-lang="en"
+          id="pick-en"
+          type="button"
+        >
+          <span class="lang-modal__btn-label">ENGLISH</span>
+          <span class="tag-badge tag-badge--accent" id="badge-en" hidden>
+            <span class="t-en">{en.langModal.recommended}</span>
+            <span class="t-id">{id.langModal.recommended}</span>
+          </span>
+        </button>
+
+        <button
+          class="lang-modal__btn"
+          data-lang="id"
+          id="pick-id"
+          type="button"
+        >
+          <span class="lang-modal__btn-label">BAHASA INDONESIA</span>
+          <span class="tag-badge tag-badge--accent" id="badge-id" hidden>
+            <span class="t-en">{en.langModal.recommended}</span>
+            <span class="t-id">{id.langModal.recommended}</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .lang-modal-overlay {
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-6);
+    z-index: 200;
+    width: calc(100% - (var(--space-6) * 2));
+    max-width: 360px;
+    display: flex;
+    pointer-events: none;
+  }
+
+  .lang-modal {
+    width: 100%;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-text);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    position: relative;
+    pointer-events: auto;
+    animation: modal-slide-in 400ms var(--ease-out) both;
+  }
+
+  @keyframes modal-slide-in {
+    from {
+      transform: translateY(24px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .lang-modal__bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-bg-subtle);
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--text-2xs);
+    color: var(--color-text-muted);
+  }
+
+  .lang-modal__close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    transition: color var(--duration-fast);
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .lang-modal__close-btn:hover {
+    color: var(--color-accent);
+  }
+
+  .lang-modal__content {
+    padding: var(--space-5);
+  }
+
+  .lang-modal__title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+    color: var(--color-text);
+  }
+
+  .lang-modal__subtitle {
+    margin-bottom: var(--space-4);
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .lang-modal__options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .lang-modal__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--duration-fast);
+    border-radius: var(--radius-xs);
+  }
+  .lang-modal__btn:hover {
+    border-color: var(--color-text);
+    background-color: var(--color-text);
+    color: var(--color-bg);
+  }
+  .lang-modal__btn:hover .lang-modal__btn-label {
+    color: var(--color-bg);
+  }
+  .lang-modal__btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+  }
+
+  .lang-modal__btn-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lang-modal {
+      animation: none !important;
+    }
+  }
+</style>
+
+<script>
+  const PREF_KEY = 'portfolio-lang';
+
+  function getDetectedLang(): 'en' | 'id' {
+    const nav = navigator.language ?? navigator.languages?.[0] ?? 'en';
+    return nav.startsWith('id') ? 'id' : 'en';
+  }
+
+  function setLanguage(lang: 'en' | 'id') {
+    localStorage.setItem(PREF_KEY, lang);
+    document.documentElement.className = 'lang-' + lang;
+    window.dispatchEvent(new CustomEvent('lang-changed', { detail: lang }));
+  }
+
+  function init() {
+    const stored = localStorage.getItem(PREF_KEY) as 'en' | 'id' | null;
+    if (stored) return;
+
+    const modal = document.getElementById('lang-modal') as HTMLDivElement | null;
+    if (!modal) return;
+
+    const detected = getDetectedLang();
+    const badge = document.getElementById(`badge-${detected}`) as HTMLElement | null;
+    badge?.removeAttribute('hidden');
+
+    modal.removeAttribute('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+
+    const closeModal = () => {
+      modal.setAttribute('hidden', 'true');
+      modal.setAttribute('aria-hidden', 'true');
+      modal.style.display = 'none';
+    };
+
+    const closeBtn = document.getElementById('close-lang-modal');
+    closeBtn?.addEventListener('click', () => {
+      setLanguage(detected);
+      closeModal();
+    });
+
+    ['en', 'id'].forEach((l) => {
+      document.getElementById(`pick-${l}`)?.addEventListener('click', () => {
+        setLanguage(l as 'en' | 'id');
+        closeModal();
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

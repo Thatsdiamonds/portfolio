@@ -1,0 +1,21 @@
+/* ============================================================
+   ANIMATIONS - Instant, Direct Loading (No Fade-in Scroll Delay)
+   Respects user request: Immediate visibility, zero scroll lag.
+   ============================================================ */
+
+/* Disable all fade-in scroll delays */
+[data-reveal],
+[data-reveal="frame"] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Micro hover interactions only */
+.project-card-link,
+.pill-btn,
+.nav-link-item {
+  transition: transform var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-out),
+              opacity var(--duration-fast) var(--ease-out);
+}

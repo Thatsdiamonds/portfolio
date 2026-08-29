@@ -1,0 +1,153 @@
+{
+  "lang": "en",
+  "nav": {
+    "work": "Work",
+    "about": "About",
+    "resume": "Resume",
+    "toggle_lang": "ID"
+  },
+  "langModal": {
+    "title": "Choose your language",
+    "subtitle": "Select the language you'd like to continue in.",
+    "recommended": "Recommended",
+    "en": "English",
+    "id": "Bahasa Indonesia",
+    "continue": "Continue"
+  },
+  "hero": {
+    "role": "Developer & Designer",
+    "lead": "Developer & Designer based in Indonesia. Currently building high-performance web systems, serverless tools, and intuitive digital interfaces.",
+    "tagline": "Continuously growing to create positive change - from my immediate surroundings to a global scale.",
+    "cta_work": "View Work",
+    "cta_about": "About Me"
+  },
+  "work": {
+    "section_label": "Selected work",
+    "hint": "Click projects to view details",
+    "view_case_study": "View case study →",
+    "view_all": "All projects →"
+  },
+  "statement": {
+    "text": "I specialize in building resilient web applications and systems - bridging the gap between high-level engineering strategy and intuitive, pixel-perfect execution."
+  },
+  "experience": {
+    "section_label": "Experience"
+  },
+  "capabilities": {
+    "section_label": "Capabilities"
+  },
+  "about_short": {
+    "section_label": "About",
+    "read_more": "Read more →"
+  },
+  "contact": {
+    "section_label": "Contact",
+    "cta": "Have something worth building?",
+    "body": "I'm open to collaborations, freelance projects, and conversations about interesting problems.",
+    "reach": "Reach me at",
+    "copy_email": "Copy email",
+    "copied": "Copied!"
+  },
+  "projects": {
+    "page_title": "Work",
+    "page_subtitle": "A selection of projects built across web, automation, design, and more.",
+    "all_projects": "All Projects",
+    "filter_all": "All",
+    "view_project": "View project",
+    "back": "← Back"
+  },
+  "project_detail": {
+    "role": "Role",
+    "year": "Year",
+    "category": "Category",
+    "technologies": "Technologies",
+    "live_site": "Live site →",
+    "github": "GitHub →",
+    "next_project": "Next project"
+  },
+  "about": {
+    "page_title": "About",
+    "bio_label": "Bio",
+    "focus_label": "Current Focus",
+    "interests_label": "Interests",
+    "experience_label": "Experience",
+    "contact_label": "Get in touch"
+  },
+  "resume": {
+    "page_title": "Resume",
+    "download": "Download PDF",
+    "back": "← Back",
+    "view_note": "Download or view full resume below."
+  },
+  "footer": {
+    "built_with": "Built with Astro. Deployed on Cloudflare Pages.",
+    "rights": "All rights reserved."
+  },
+  "aria": {
+    "main_nav": "Main navigation",
+    "toggle_menu": "Toggle menu",
+    "close_menu": "Close menu",
+    "lang_select": "Select language",
+    "back_to_top": "Back to top"
+  },
+  "error": {
+    "404_title": "Page not found",
+    "404_body": "The page you're looking for doesn't exist.",
+    "404_back": "Go home"
+  },
+  "experience_entries": [
+    {
+      "title": "Frontend Developer",
+      "company": "Titik Simpang Creative",
+      "period": "May 2025 - Present",
+      "description": "Collaborated on design and deployment of full-stack web applications. Built responsive frontend interfaces and backend services using modern frameworks, APIs, and databases. Managed complete development cycle from concept to deployment, optimizing application architecture."
+    },
+    {
+      "title": "IT Technician Intern",
+      "company": "CV. Putra Mandiri Komputer",
+      "period": "Dec 2025 - Apr 2026",
+      "description": "Managed end-to-end IT operations: PC assembly, Windows installation, hardware repair, and network troubleshooting. Resolved hardware/software issues, configured systems/drivers, and supported daily technical infrastructure. Standardized OS installations by removing bloatware and optimizing drivers, improving boot performance and stability."
+    },
+    {
+      "title": "Coding Extracurricular Instructor",
+      "company": "Al Azhar Islamic School Pati",
+      "period": "Jul 2025 - Apr 2026",
+      "description": "Taught elementary and middle school students programming fundamentals using Python, HTML/CSS, and Scratch. Designed interactive coding lessons, templates, and hands-on assignments focused on logic and problem-solving."
+    },
+    {
+      "title": "Treasurer & Automation Administrator",
+      "company": "Community Youth Savings",
+      "period": "Aug 2025 - Feb 2026",
+      "description": "Digitized weekly community savings system by transitioning from paper-based records to structured spreadsheet financial systems. Developed spreadsheet scripts and automated reports to track outstanding payments and maintain payment history."
+    }
+  ],
+  "capabilities_list": [
+    "Laravel",
+    "PHP",
+    "Python",
+    "JavaScript",
+    "Vue.js",
+    "SvelteKit",
+    "Astro",
+    "Tailwind CSS",
+    "Supabase",
+    "Cloudflare Pages",
+    "SQLite",
+    "UI/UX Design",
+    "Figma",
+    "Unity",
+    "C#"
+  ],
+  "about_bio": {
+    "short": "Applied Data Science student with a background in Computer and Network Engineering. Possesses versatile full-stack development experience spanning web, automation, UI/UX, and game development.",
+    "focus": "Passionate about building practical, user-focused digital products powered by data-driven solutions, local AI integrations, and efficient automation.",
+    "interests": [
+      "Data Science",
+      "Web Development",
+      "UI/UX Design",
+      "Game Development",
+      "Automation"
+    ],
+    "contact_note": "I'm available for freelance work and collaboration."
+  }
+}

@@ -1,0 +1,116 @@
+---
+/**
+ * EmailObfuscated - renders email address without plaintext in HTML.
+ * Uses JS to decode a reversed + encoded string.
+ * Provides copy-to-clipboard with confirmation feedback.
+ * Accessible: fallback text for no-JS environments.
+ */
+interface Props {
+  label?: string;
+  copyLabel?: string;
+  copiedLabel?: string;
+}
+
+const { label = 'email', copyLabel = 'Copy email', copiedLabel = 'Copied!' } = Astro.props;
+
+// Obfuscation: reverse the encoded string at runtime via JS
+// The actual email is never in the HTML source as plaintext
+---
+
+<span class="email-obfuscated" data-copy-label={copyLabel} data-copied-label={copiedLabel}>
+  <noscript>
+    <span class="meta">[Enable JavaScript to view email]</span>
+  </noscript>
+  <span class="email-target" id="email-display" aria-label={label}></span>
+  <button
+    class="email-copy-btn"
+    id="email-copy-btn"
+    type="button"
+    aria-live="polite"
+    hidden
+  >
+    {copyLabel}
+  </button>
+</span>
+
+<style>
+  .email-obfuscated {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .email-target {
+    font-size: var(--text-base);
+    user-select: all;
+  }
+
+  .email-copy-btn {
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    background: none;
+    border: 1px solid var(--color-border);
+    padding: var(--space-1) var(--space-3);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: color var(--duration-fast), border-color var(--duration-fast);
+  }
+  .email-copy-btn:hover {
+    color: var(--color-text);
+    border-color: var(--color-text);
+  }
+  .email-copy-btn.copied {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+</style>
+
+<script>
+  (function () {
+    // Email stored as array of char codes, reversed - not as a string literal
+    // Replace these values with: Array.from(yourEmail).map(c => c.charCodeAt(0)).reverse()
+    const encoded: number[] = [
+      109, 111, 99, 46, 101, 108, 112, 109, 97, 120, 101, 64, 101, 109, 97, 110, 45, 114, 117, 111, 121
+    ]; // Placeholder: "your-name@example.com" reversed
+
+    const email = encoded.reverse().map((c) => String.fromCharCode(c)).join('');
+
+    const display = document.getElementById('email-display');
+    const btn = document.getElementById('email-copy-btn') as HTMLButtonElement | null;
+    const wrapper = document.querySelector('.email-obfuscated');
+
+    if (display) {
+      display.textContent = email;
+    }
+
+    if (btn) {
+      btn.removeAttribute('hidden');
+
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(email);
+          const copiedLabel = wrapper?.getAttribute('data-copied-label') ?? 'Copied!';
+          btn.textContent = copiedLabel;
+          btn.classList.add('copied');
+          setTimeout(() => {
+            const copyLabel = wrapper?.getAttribute('data-copy-label') ?? 'Copy email';
+            btn.textContent = copyLabel;
+            btn.classList.remove('copied');
+          }, 2000);
+        } catch {
+          // Fallback: select the text
+          const range = document.createRange();
+          if (display) {
+            range.selectNodeContents(display);
+            window.getSelection()?.removeAllRanges();
+            window.getSelection()?.addRange(range);
+          }
+        }
+      });
+    }
+  })();
+</script>

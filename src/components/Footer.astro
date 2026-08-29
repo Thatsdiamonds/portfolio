@@ -1,0 +1,74 @@
+---
+import T from './T.astro';
+import { SITE_CONFIG } from '../config';
+---
+
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner container">
+    <div class="footer-links">
+      <a href="mailto:hello@example.com" class="footer-link">Email</a>
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+      <a href="/resume#cv-section" class="footer-link">
+        <span class="t-en">Download CV</span>
+        <span class="t-id">Unduh CV</span>
+      </a>
+    </div>
+    <div class="footer-brand">
+      <span class="brand-name">{SITE_CONFIG.name}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding-block: var(--space-8);
+    margin-top: var(--space-20);
+    background-color: var(--color-bg);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .site-footer__inner {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+  }
+
+  .footer-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color var(--duration-fast);
+  }
+
+  .footer-link:hover {
+    color: var(--color-text);
+  }
+
+  .footer-brand {
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+  }
+
+  .brand-name {
+    text-transform: lowercase;
+  }
+</style>

@@ -1,0 +1,152 @@
+---
+/**
+ * ProjectEntry - Helena Stening Selected Work Card
+ * Layout: Image preview on left with rounded corners, title & text on right.
+ */
+interface Props {
+  slug: string;
+  index: number;
+  titleEn: string;
+  titleId: string;
+  descriptionEn: string;
+  descriptionId: string;
+  category: string;
+  year: number;
+  image?: string;
+  technologies: string[];
+}
+
+const {
+  slug,
+  index = 1,
+  titleEn,
+  titleId,
+  descriptionEn,
+  descriptionId,
+  image
+} = Astro.props;
+---
+
+<article class="project-card">
+  <a href={`/projects/${slug}`} class="project-card__link" aria-label={`View project ${titleEn}`}>
+    <!-- Left: Large Image Preview Frame -->
+    <div class="project-card__media">
+      {image ? (
+        <img
+          src={image}
+          alt={titleEn}
+          loading={index <= 2 ? "eager" : "lazy"}
+          fetchpriority={index <= 2 ? "high" : "auto"}
+          decoding="async"
+          class="project-card__img"
+        />
+      ) : (
+        <div class="project-card__placeholder">
+          <span class="meta" style="font-size: 11px;">
+            <span class="t-en">{titleEn}</span>
+            <span class="t-id">{titleId}</span>
+          </span>
+        </div>
+      )}
+    </div>
+
+    <!-- Right: Text Details -->
+    <div class="project-card__info">
+      <h3 class="project-card__title">
+        <span class="t-en">{titleEn}</span>
+        <span class="t-id">{titleId}</span>
+      </h3>
+      <p class="project-card__desc meta">
+        <span class="t-en">{descriptionEn}</span>
+        <span class="t-id">{descriptionId}</span>
+      </p>
+    </div>
+  </a>
+</article>
+
+<style>
+  .project-card {
+    width: 100%;
+  }
+
+  .project-card__link {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    text-decoration: none;
+    transition: background-color var(--duration-fast), border-color var(--duration-fast);
+  }
+
+  @media (min-width: 640px) {
+    .project-card__link {
+      grid-template-columns: 320px 1fr;
+      padding: var(--space-5);
+      gap: var(--space-8);
+    }
+  }
+
+  @media (min-width: 860px) {
+    .project-card__link {
+      grid-template-columns: 360px 1fr;
+    }
+  }
+
+  .project-card__link:hover {
+    background-color: var(--color-bg-elevated);
+    border-color: var(--color-border);
+  }
+
+  /* Media Frame */
+  .project-card__media {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+  }
+
+  .project-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2);
+    text-align: center;
+    background: var(--color-bg-subtle);
+    color: var(--color-text-muted);
+  }
+
+  /* Info */
+  .project-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .project-card__title {
+    font-size: clamp(var(--text-md), 2vw, var(--text-lg));
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+
+  .project-card__desc {
+    font-size: var(--text-sm);
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+  }
+</style>
