@@ -57,6 +57,14 @@ const exp = en.experience_entries;
           />
         ))}
       </div>
+
+      <!-- View all CTA -->
+      <div class="section-cta">
+        <a href="/projects" class="pill-btn pill-btn--ghost section-cta__link" id="btn-view-all-work">
+          <span class="t-en">View all projects →</span>
+          <span class="t-id">Lihat semua proyek →</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -73,7 +81,7 @@ const exp = en.experience_entries;
   <section class="section-container" id="about-preview" aria-label="About Me">
     <div class="container">
       <div class="about-split">
-        <!-- Photo on Right, Bio on Left -->
+        <!-- Bio on Left -->
         <div class="about-split__text">
           <p class="meta about-bio-p">
             <T keyName="about_bio.short" />
@@ -82,16 +90,22 @@ const exp = en.experience_entries;
             <T keyName="about_bio.focus" />
           </p>
 
-          <div class="about-action">
-            <a href="/resume" class="pill-btn">
-              <T keyName="resume.download" />
+          <div class="about-actions">
+            <a href="/resume#cv-section" class="pill-btn" id="btn-about-view-cv">
+              <span class="t-en">View CV →</span>
+              <span class="t-id">Lihat CV →</span>
+            </a>
+            <a href="/about" class="pill-btn pill-btn--ghost" id="btn-about-more">
+              <span class="t-en">More about me</span>
+              <span class="t-id">Lebih lanjut</span>
             </a>
           </div>
         </div>
 
-        <div class="about-split__image">
+        <!-- Portrait on Right with scroll parallax -->
+        <div class="about-split__image" id="about-portrait-wrap">
           <div class="portrait-frame">
-            <img src={SITE_CONFIG.profileImage} alt={SITE_CONFIG.name} class="portrait-img" />
+            <img src={SITE_CONFIG.profileImage} alt={SITE_CONFIG.name} class="portrait-img" id="about-portrait-img" />
           </div>
         </div>
       </div>
@@ -197,6 +211,16 @@ const exp = en.experience_entries;
     color: #888888;
   }
 
+  /* ─── Section CTA ──────────────────────────────────── */
+  .section-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-10);
+  }
+  .section-cta__link {
+    font-size: var(--text-sm);
+  }
+
   /* ─── About Split Layout ──────────────────────────── */
   .about-split {
     display: grid;
@@ -218,8 +242,16 @@ const exp = en.experience_entries;
     line-height: 1.6;
   }
 
-  .about-action {
+  .about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
     margin-top: var(--space-6);
+  }
+
+  /* Portrait subtle parallax target */
+  .about-split__image {
+    will-change: transform;
   }
 
   .portrait-frame {
@@ -320,10 +352,9 @@ const exp = en.experience_entries;
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    // 1. Scroll-sync word reveal for statement section
+    // ── 1. Scroll-sync word reveal for statement section ──
     const statements = document.querySelectorAll('.scroll-reveal-text .t-en, .scroll-reveal-text .t-id');
     statements.forEach(el => {
-      // Split text into words only if not already split
       if (!el.querySelector('.reveal-word')) {
         const text = el.textContent || '';
         const words = text.split(' ').filter(w => w.trim().length > 0);
@@ -332,42 +363,50 @@ const exp = en.experience_entries;
     });
 
     const revealSections = document.querySelectorAll('.statement-section');
-    
+
     const updateReveal = () => {
       revealSections.forEach(section => {
         const rect = section.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        
-        // Start revealing when the element enters the bottom 25% of the screen
-        // Finish revealing when it reaches the middle of the screen
-        const start = windowHeight * 0.75;
-        const end = windowHeight * 0.35;
-        
+        const wh = window.innerHeight;
+        const start = wh * 0.8;
+        const end   = wh * 0.3;
         let progress = (start - rect.top) / (start - end);
         progress = Math.max(0, Math.min(1, progress));
-        
-        // Update words opacity based on scroll progress
+
         const words = section.querySelectorAll('.reveal-word');
-        words.forEach((word, index) => {
-          const wordProgress = (progress * words.length) - index;
-          // opacity between 0.1 (unfocused) and 1 (focused)
-          const opacity = 0.1 + Math.max(0, Math.min(0.9, wordProgress));
-          // add subtle blur to unfocused words
-          const blurAmt = Math.max(0, 4 - (wordProgress * 4));
+        words.forEach((word, i) => {
+          const wp = (progress * words.length) - i;
+          // active color → white (#fff), inactive → #888
+          const t = Math.max(0, Math.min(1, wp));
+          // lerp from 0x88 (136) to 0xFF (255)
+          const v = Math.round(136 + t * 119);
+          const blurAmt = Math.max(0, 3 - wp * 3);
           const el = word as HTMLElement;
-          el.style.opacity = opacity.toString();
-          el.style.filter = `blur(${blurAmt}px)`;
+          el.style.color  = `rgb(${v},${v},${v})`;
+          el.style.filter = `blur(${blurAmt.toFixed(2)}px)`;
         });
       });
     };
 
     window.addEventListener('scroll', updateReveal, { passive: true });
-    // Also bind to lenis if available
-    if (window._lenis) {
-      window._lenis.on('scroll', updateReveal);
-    }
-    
-    // Initial trigger
     updateReveal();
+
+    // ── 2. Subtle scroll-sync parallax on about portrait ──
+    const portraitWrap = document.getElementById('about-portrait-wrap');
+    if (portraitWrap) {
+      const updateParallax = () => {
+        const rect = portraitWrap.getBoundingClientRect();
+        const wh   = window.innerHeight;
+        // -1 (above viewport) … +1 (below viewport)
+        const rel  = (wh * 0.5 - (rect.top + rect.height * 0.5)) / wh;
+        // max ±18px vertical drift; 0.5% subtle rotation
+        const ty   = (rel * 36).toFixed(2);
+        const rot  = (rel * 0.8).toFixed(3);
+        (portraitWrap as HTMLElement).style.transform =
+          `translateY(${ty}px) rotate(${rot}deg)`;
+      };
+      window.addEventListener('scroll', updateParallax, { passive: true });
+      updateParallax();
+    }
   });
 </script>

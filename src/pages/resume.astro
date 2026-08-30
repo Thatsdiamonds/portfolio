@@ -115,7 +115,7 @@ const exp = en.experience_entries;
     </section>
 
     <!-- CV Access Section -->
-    <section class="section-container" id="cv-section">
+    <section class="section-container" id="cv-section" style="scroll-margin-top: 5rem;">
       <div class="section-headline" style="text-align: left;">
         <h2 class="section-headline__title">full cv / resume</h2>
       </div>
@@ -162,6 +162,23 @@ const exp = en.experience_entries;
     </section>
   </div>
 </BaseLayout>
+
+<script>
+  // Smooth scroll for in-page anchor buttons on resume
+  const initResumeScroll = () => {
+    const scrollBtn = document.getElementById('btn-scroll-cv');
+    if (!scrollBtn) return;
+    scrollBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById('cv-section');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  };
+  initResumeScroll();
+  document.addEventListener('astro:page-load', initResumeScroll);
+</script>
 
 <style>
   .resume-page {

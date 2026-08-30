@@ -5,12 +5,12 @@ import { SITE_CONFIG } from '../config';
 
 <header class="site-header" id="site-header" role="banner">
   <div class="site-header__inner container">
-    <!-- Left Logo / Brand -->
+    <!-- Brand -->
     <a href="/" class="site-header__brand" aria-label="Home">
       <span class="brand-name">{SITE_CONFIG.name}</span>
     </a>
 
-    <!-- Desktop Nav Links -->
+    <!-- Desktop nav -->
     <nav class="site-header__nav" aria-label="Main Navigation">
       <ul class="site-header__links" role="list">
         <li>
@@ -19,40 +19,21 @@ import { SITE_CONFIG } from '../config';
             <span class="t-id">karya</span>
           </a>
         </li>
-        <li>
-          <a href="/about" class="nav-link">
-            <T keyName="nav.about" />
-          </a>
-        </li>
-        <li>
-          <a href="/resume" class="nav-link">
-            <T keyName="nav.resume" />
-          </a>
-        </li>
+        <li><a href="/about" class="nav-link"><T keyName="nav.about" /></a></li>
+        <li><a href="/resume" class="nav-link"><T keyName="nav.resume" /></a></li>
       </ul>
-
-      <!-- Language Pill Toggle -->
       <div class="lang-switch-wrap">
-        <button
-          type="button"
-          class="lang-pill"
-          id="lang-toggle-btn"
-          aria-label="Toggle language between English and Indonesian"
-        >
+        <button type="button" class="lang-pill" id="lang-toggle-btn"
+          aria-label="Toggle language between English and Indonesian">
           <span class="t-en">EN / ID</span>
           <span class="t-id">ID / EN</span>
         </button>
       </div>
     </nav>
 
-    <!-- Mobile Hamburger Button -->
-    <button
-      class="site-header__menu-btn"
-      id="menu-btn"
-      aria-controls="mobile-menu"
-      aria-expanded="false"
-      aria-label="Toggle menu"
-    >
+    <!-- Mobile burger -->
+    <button class="site-header__menu-btn" id="menu-btn"
+      aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
       <span class="hamburger-box" aria-hidden="true">
         <span class="hamburger-line line-top"></span>
         <span class="hamburger-line line-mid"></span>
@@ -60,58 +41,51 @@ import { SITE_CONFIG } from '../config';
       </span>
     </button>
   </div>
-
-  <!-- Full-screen Mobile Menu Overlay -->
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="mobile-menu__inner">
-      <nav aria-label="Mobile Navigation">
-        <ul class="mobile-menu__links" role="list">
-          <li class="mobile-nav-item">
-            <a href="/projects" class="mobile-nav-link">
-              <span class="t-en">selected work</span>
-              <span class="t-id">karya</span>
-            </a>
-          </li>
-          <li class="mobile-nav-item">
-            <a href="/about" class="mobile-nav-link"><T keyName="nav.about" /></a>
-          </li>
-          <li class="mobile-nav-item">
-            <a href="/resume" class="mobile-nav-link"><T keyName="nav.resume" /></a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="mobile-menu__footer">
-        <button
-          type="button"
-          class="pill-btn pill-btn--outline mobile-lang-btn"
-          id="mobile-lang-toggle-btn"
-        >
-          <span class="t-en">Bahasa Indonesia</span>
-          <span class="t-id">English</span>
-        </button>
-      </div>
-    </div>
-  </div>
 </header>
 
+<!-- Mobile overlay â€” lives OUTSIDE <header> so fixed position is never clipped -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="mobile-menu__inner">
+    <nav aria-label="Mobile Navigation">
+      <ul class="mobile-menu__links" role="list">
+        <li class="mobile-nav-item">
+          <a href="/projects" class="mobile-nav-link">
+            <span class="t-en">selected work</span>
+            <span class="t-id">karya</span>
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="/about" class="mobile-nav-link"><T keyName="nav.about" /></a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="/resume" class="mobile-nav-link"><T keyName="nav.resume" /></a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mobile-menu__footer">
+      <button type="button" class="pill-btn pill-btn--outline mobile-lang-btn"
+        id="mobile-lang-toggle-btn">
+        <span class="t-en">Bahasa Indonesia</span>
+        <span class="t-id">English</span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <style>
-  /* Header shell */
+  /* â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .site-header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    background-color: rgba(18, 18, 18, 0.85);
-    backdrop-filter: blur(12px);
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background-color: rgba(18, 18, 18, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     transition: border-color var(--duration-base);
     border-bottom: 1px solid transparent;
   }
-
-  .site-header.scrolled {
-    border-bottom-color: var(--color-border);
-  }
+  .site-header.scrolled { border-bottom-color: var(--color-border); }
 
   .site-header__inner {
     display: flex;
@@ -120,6 +94,7 @@ import { SITE_CONFIG } from '../config';
     height: 4rem;
   }
 
+  /* Brand */
   .brand-name {
     font-size: var(--text-sm);
     font-weight: 500;
@@ -134,13 +109,11 @@ import { SITE_CONFIG } from '../config';
     align-items: center;
     gap: var(--space-8);
   }
-
   .site-header__links {
     display: flex;
     align-items: center;
     gap: var(--space-8);
   }
-
   .nav-link {
     font-size: var(--text-xs);
     font-weight: 400;
@@ -148,11 +121,8 @@ import { SITE_CONFIG } from '../config';
     text-transform: lowercase;
     transition: color var(--duration-fast);
   }
-
   .nav-link:hover,
-  .nav-link[aria-current="page"] {
-    color: var(--color-text);
-  }
+  .nav-link[aria-current="page"] { color: var(--color-text); }
 
   .lang-pill {
     background: var(--color-bg-subtle);
@@ -170,77 +140,78 @@ import { SITE_CONFIG } from '../config';
     background-color: var(--color-bg-elevated);
   }
 
-  /* Hamburger button */
+  /* â”€â”€ Hamburger â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .site-header__menu-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
     background: var(--color-bg-subtle);
     border: 1px solid var(--color-border);
     cursor: pointer;
     color: var(--color-text);
     border-radius: var(--radius-xs);
     position: relative;
-    z-index: 200;
+    z-index: 1100;  /* above overlay */
+    flex-shrink: 0;
   }
-
   .hamburger-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
   }
-
   .hamburger-line {
     display: block;
-    height: 1.5px;
+    height: 2px;
     width: 100%;
     background-color: currentColor;
     border-radius: 2px;
     transform-origin: center;
-    transition:
-      transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.25s ease;
   }
 
-  /* Animate to X when open */
+  /* Burger â†’ X */
   .site-header__menu-btn[aria-expanded="true"] .line-top {
-    transform: translateY(6.5px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
   }
   .site-header__menu-btn[aria-expanded="true"] .line-mid {
     opacity: 0;
     transform: scaleX(0);
   }
   .site-header__menu-btn[aria-expanded="true"] .line-bot {
-    transform: translateY(-6.5px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* Full-screen mobile overlay */
+  /* â”€â”€ Full-screen overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .mobile-menu {
     position: fixed;
     inset: 0;
-    z-index: 150;
+    z-index: 990;          /* below burger (1100) */
     background-color: var(--color-bg);
     display: flex;
     flex-direction: column;
+
+    /* hidden state */
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
-    transition:
-      opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 0.35s;
+    transition: opacity 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.38s step-end;
   }
-
   .mobile-menu.is-open {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
+    transition: opacity 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s step-start;
   }
 
+  /* Layout */
   .mobile-menu__inner {
     display: flex;
     flex-direction: column;
@@ -248,135 +219,130 @@ import { SITE_CONFIG } from '../config';
     align-items: flex-start;
     gap: var(--space-12);
     height: 100%;
-    padding: 0 var(--space-8);
-    padding-top: 4rem;
+    padding: 4rem var(--space-8) var(--space-8);
     max-width: 40rem;
     margin: 0 auto;
     width: 100%;
   }
 
+  /* Nav links */
   .mobile-menu__links {
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: var(--space-4);
     width: 100%;
   }
-
-  .mobile-nav-item {
-    overflow: hidden;
-  }
+  .mobile-nav-item { overflow: hidden; }
 
   .mobile-nav-link {
     display: block;
-    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-size: clamp(2.2rem, 9vw, 4rem);
     font-weight: 700;
     color: var(--color-text);
     text-transform: lowercase;
     letter-spacing: -0.03em;
-    line-height: 1.1;
-    transform: translateY(40px);
+    line-height: 1.15;
+    transform: translateY(48px);
     opacity: 0;
-    transition:
-      transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.4s ease,
-      color var(--duration-fast);
+    transition: transform 0.48s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.42s ease,
+                color     var(--duration-fast);
   }
+  .mobile-nav-link:hover { color: var(--color-text-secondary); }
+  .mobile-nav-link[aria-current="page"] { color: var(--color-text-secondary); }
 
-  .mobile-nav-link:hover {
-    color: var(--color-text-secondary);
-  }
-
-  .mobile-nav-link[aria-current="page"] {
-    color: var(--color-text-secondary);
-  }
-
+  /* Stagger slide-in */
   .mobile-menu.is-open .mobile-nav-link {
     transform: translateY(0);
     opacity: 1;
   }
+  .mobile-menu.is-open .mobile-nav-item:nth-child(1) .mobile-nav-link { transition-delay: 0.06s; }
+  .mobile-menu.is-open .mobile-nav-item:nth-child(2) .mobile-nav-link { transition-delay: 0.13s; }
+  .mobile-menu.is-open .mobile-nav-item:nth-child(3) .mobile-nav-link { transition-delay: 0.20s; }
 
-  .mobile-menu.is-open .mobile-nav-item:nth-child(1) .mobile-nav-link {
-    transition-delay: 0.08s;
-  }
-  .mobile-menu.is-open .mobile-nav-item:nth-child(2) .mobile-nav-link {
-    transition-delay: 0.14s;
-  }
-  .mobile-menu.is-open .mobile-nav-item:nth-child(3) .mobile-nav-link {
-    transition-delay: 0.20s;
-  }
-
+  /* Footer / lang button */
   .mobile-menu__footer {
     opacity: 0;
-    transform: translateY(12px);
-    transition:
-      opacity 0.4s ease 0.28s,
-      transform 0.4s ease 0.28s;
+    transform: translateY(14px);
+    transition: opacity   0.4s ease 0.28s,
+                transform 0.4s ease 0.28s;
   }
-
   .mobile-menu.is-open .mobile-menu__footer {
     opacity: 1;
     transform: translateY(0);
   }
 
+  /* Desktop: hide mobile elements */
   @media (min-width: 768px) {
-    .site-header__nav { display: flex; }
+    .site-header__nav     { display: flex; }
     .site-header__menu-btn { display: none; }
-    .mobile-menu { display: none !important; }
+    .mobile-menu          { display: none !important; }
   }
 </style>
 
 <script>
+  // Use AbortController so listeners are cleaned up between Astro page loads
+  let headerController = null;
+
   const initHeader = () => {
-    const header = document.getElementById('site-header');
+    // Abort previous listeners before re-attaching
+    if (headerController) headerController.abort();
+    headerController = new AbortController();
+    const sig = { signal: headerController.signal };
+
+    const header   = document.getElementById('site-header');
+    const menuBtn  = document.getElementById('menu-btn');
+    const overlay  = document.getElementById('mobile-menu');
+
+    // Scroll border
     window.addEventListener('scroll', () => {
       header?.classList.toggle('scrolled', window.scrollY > 20);
-    }, { passive: true });
+    }, { passive: true, ...sig });
 
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+    if (!menuBtn || !overlay) return;
 
     const openMenu = () => {
-      menuBtn?.setAttribute('aria-expanded', 'true');
-      mobileMenu?.classList.add('is-open');
-      mobileMenu?.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     };
 
     const closeMenu = () => {
-      menuBtn?.setAttribute('aria-expanded', 'false');
-      mobileMenu?.classList.remove('is-open');
-      mobileMenu?.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     };
 
-    menuBtn?.addEventListener('click', () => {
-      const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
-      isOpen ? closeMenu() : openMenu();
+    menuBtn.addEventListener('click', () => {
+      menuBtn.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
+    }, sig);
+
+    overlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu, sig);
     });
 
-    mobileMenu?.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeMenu();
-    });
+    }, sig);
 
-    const handleToggle = () => {
+    // Language toggle
+    const handleLang = () => {
       const isEn = document.documentElement.classList.contains('lang-en');
-      const newLang = isEn ? 'id' : 'en';
-      localStorage.setItem('portfolio-lang', newLang);
-      document.documentElement.className = 'lang-' + newLang;
-      window.dispatchEvent(new CustomEvent('lang-changed', { detail: newLang }));
+      const lang = isEn ? 'id' : 'en';
+      localStorage.setItem('portfolio-lang', lang);
+      document.documentElement.className = 'lang-' + lang;
+      window.dispatchEvent(new CustomEvent('lang-changed', { detail: lang }));
     };
+    document.getElementById('lang-toggle-btn')?.addEventListener('click', handleLang, sig);
+    document.getElementById('mobile-lang-toggle-btn')?.addEventListener('click', handleLang, sig);
 
-    document.getElementById('lang-toggle-btn')?.addEventListener('click', handleToggle);
-    document.getElementById('mobile-lang-toggle-btn')?.addEventListener('click', handleToggle);
-
-    const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach((link) => {
+    // Active page highlight
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
       const href = link.getAttribute('href')?.replace(/\/$/, '') || '/';
-      if (href === currentPath || (href !== '/' && currentPath.startsWith(href))) {
+      if (href === path || (href !== '/' && path.startsWith(href))) {
         link.setAttribute('aria-current', 'page');
       } else {
         link.removeAttribute('aria-current');
